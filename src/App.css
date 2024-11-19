@@ -1,0 +1,20 @@
+.mainPage{
+  background-color: #fbeede;
+  padding-bottom: 30px;
+}
+
+.sider{
+  background: #fbeede;
+  color: #3b2d41;
+  font-family: 'DelaGothicOne';
+  font-weight: 100;
+}
+
+
+.c li {
+  background: linear-gradient(
+    to bottom right,
+    rgb(246, 192, 139),
+    rgb(250, 219, 184)
+  );
+}

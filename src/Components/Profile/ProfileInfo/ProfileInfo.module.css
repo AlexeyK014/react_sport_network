@@ -1,0 +1,280 @@
+.userPhoto{
+    width: 200px;
+    border-radius: 100px;
+}
+
+.contacts{
+    padding-left: 10px;
+}
+
+.error{
+    color: red;
+}
+
+.errorInput{
+    border: 2px solid red;
+    background-color: rgb(254, 214, 214);
+}
+
+.titlePage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mainTitle{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 17px;
+    text-transform: uppercase;
+    font-family: 'Montserrat';
+}
+
+.lineTitle{
+    width: 8%; 
+    height: 1px; 
+    margin: 0 30px;
+    background: #ffffff;
+  }
+
+.profilePage{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.blogTop {
+    /* display: flex; */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* background-image: url('../../../img/ФонБегун6.jpg'); */
+    background-image: url('../../../img/fonLogin.jpg');
+    background-size: cover;
+    min-width: 100%
+}
+
+.blogTopLeft{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-left: 60px;
+    /* width: 500px; */
+}
+
+.slogan {
+    color: #ffffff;
+    font-size: 70px;
+    border-radius: 1em;
+    font-family: 'DelaGothicOne';
+    letter-spacing: 1.2px;
+    z-index: 3;
+    text-transform: uppercase;
+    line-height: 70px;
+    text-align: center;
+    opacity: 0.8;
+}
+
+/* .line {
+    background-color: #f48805;
+    width: 500px;
+    height: 120px;
+    position: absolute;
+    z-index: 0;
+} */
+
+.blogTopRight {
+    display: flex;
+    align-items: center;
+    height: 600px;
+    float: right;
+}
+
+.mainPhoto{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 400px;
+}
+
+.profileData{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    padding: 40px;
+    background: linear-gradient(to bottom right, rgb(255, 132, 0), rgb(252, 191, 125));
+    height: 400px;
+    min-width: 100%;
+}
+
+
+.profilePageBlock b{
+    font-size: 20px;
+    font-family: 'Montserrat';
+    /* font-family: 'DelaGothicOne'; */
+    font-weight: 100;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+
+}
+
+.profilePageBlock div{
+    margin: 20px 0;
+    
+}
+
+.profilePageBlock span{
+    font-size: 18px;
+    font-family: 'DelaGothicOne';
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #3B2D41;
+    font-weight: 1000;
+    background-color: #ffffff6d;
+    padding: 2px;
+    position: relative;
+    line-height: 30px;
+}
+
+.profilePageBlock button{
+    border: none;
+    font-family: 'DelaGothicOne';
+    padding: 10px;
+    /* margin-left: 15px; */
+    color: #f48805;
+    text-transform: uppercase;
+}
+
+.profilePageBlock button:hover{
+    background-color: #f6c28b;
+    color: #ffffff;
+}
+
+.quote {
+    color: #ffffff;
+    font-size: 25px;
+    border-radius: 1em;
+    font-family: 'DelaGothicOne';
+    letter-spacing: 1.2px;
+    z-index: 2;
+    position: absolute;
+    top: 100px;
+    right: 250px;
+  }
+  
+
+  .quote:hover{
+    opacity: 0.8;
+  }
+  .quote figcaption,
+  .quote blockquote {
+    margin: 30px;
+    margin: 0.5em;
+  }
+
+
+
+
+.profileForm div{
+    margin: 15px;
+}
+
+.profileForm span{
+    margin: 7px;
+}
+
+.profileForm textarea{
+    border: none;
+    padding: 5px;
+}
+.profileForm input{
+    border: none;
+    padding: 5px;
+}
+.points {
+    font-size: 20px;
+    font-family: 'DelaGothicOne';
+    font-weight: 100;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+}
+
+.textareaForm{
+    display: flex;
+    align-self: baseline;
+}
+
+.textareaForm b{
+    font-size: 20px;
+    font-family: 'DelaGothicOne';
+    font-weight: 100;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+}
+
+
+.profileForm button{
+    border: none;
+    font-family: 'DelaGothicOne';
+    padding: 10px;
+    margin-left: 15px;
+    color: #f48805;
+    text-transform: uppercase;
+}
+
+.profileForm button:hover{
+    background-color: #f6c28b;
+    color: #ffffff;
+}
+
+/* .changePhoto input[type=file]{
+    border: none;
+    background-color: blue;
+} */
+
+
+.input__file {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+}
+
+.inputFileButtonText {
+    line-height: 1;
+    margin-top: 1px;
+  }
+ 
+  .inputFileButton {
+    width: 100%;
+    max-width: 155px;
+    height: 35px;
+    background: #f48805;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 12px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    cursor: pointer;
+    margin: 0 auto;
+    font-family: 'DelaGothicOne';
+    padding: 5px;
+  }
+
+
+  .inputFileButton:hover{
+    background-color: #f6c28b;
+    color: #ffffff;
+  }

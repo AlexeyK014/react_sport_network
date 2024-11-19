@@ -1,0 +1,60 @@
+.formPage{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    /* position: absolute;
+    top: 50%;
+    left: 45%; */
+}
+
+.btnLogin {
+    background-color: #f3a140;
+    color: #fff;
+    border: none;
+    width: 70px;
+    height: 40px;
+    margin: 15px;
+    font-family: var(--montserrat-font);
+    text-transform: uppercase;
+    font-family: 'DelaGothicOne';
+    text-transform: uppercase;
+    padding: 3px;
+}
+
+.btnLogin:hover{
+    background-color: #704719;
+    box-shadow: 0.2px 0.2px 5px rgba(0, 0, 0, 0.723);
+}
+.formPage h1{
+    margin: 0 auto;
+    font-family: 'DelaGothicOne';
+    text-transform: uppercase;
+    color: #f3a140;
+    letter-spacing: 5px;
+    font-size: 40px;
+    text-shadow: 1px 1px 4px #11111166;
+}
+
+
+.inputForm input{
+    background-color: rgba(94, 88, 88, 0.751);
+    border: none;
+    margin: 5px;
+    padding: 10px;
+    width: 200px;
+    height: 30px;
+    color: #fff;
+    font-family: var(--montserrat-font);
+}
+
+input::placeholder{
+    color: #ffffffb4;
+}
+
+
+.checkboxForm {
+    font-size: 20px;
+    font-family: 'Montserrat';
+    color: #fff;
+}

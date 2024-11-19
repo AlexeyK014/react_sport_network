@@ -1,0 +1,89 @@
+.newsBlog {
+  min-height: 100vh;
+}
+
+
+.newsContent {
+  background: #f3a140;
+  min-height: 100vh;
+  box-shadow: 1px 1px 5px #646464ce;
+  padding: 50px;
+}
+
+.fonBlog {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #000000;
+}
+
+.fonBlog h1{
+  color: #fff;
+  font-size: 130px;
+  font-weight: 900;
+  position: absolute;
+  text-transform: uppercase;
+  font-family: 'DelaGothicOne';
+}
+
+.fonImg {
+  max-width: 100%;
+  object-fit: contain;
+  opacity: 0.4;
+}
+
+.news {
+  padding: 30px;
+  margin: 7px;
+  background-color: #fff;
+}
+
+.titleBlog {
+  display: flex;
+  align-content: center;
+  margin: 10px;
+  padding: 5px;
+}
+
+.line {
+  height: 35px;
+  width: 3px;
+  background-color: #333;
+  position: absolute;
+  margin-right: 5px;
+}
+
+.newsTitle {
+  font-size: 15px;
+  margin: 10px;
+  font-family: "DelaGothicOne";
+  font-weight: 100;
+  color: #333;
+}
+
+.newsDescription {
+  font-size: 20px;
+  margin: 10px;
+  padding: 5px;
+  font-family: 'Outfit';
+}
+
+.authorBlog {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.authorBlog img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin: 5px;
+  border: 3px solid #ab5e01;
+}
+
+.authorName {
+  font-family: "DelaGothicOne";
+  font-weight: 100;
+  color: #333;
+}

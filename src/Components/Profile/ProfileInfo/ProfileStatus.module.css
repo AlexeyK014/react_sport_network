@@ -1,0 +1,14 @@
+.statusInput{
+    padding: 0 5px;
+    font-family: 'DelaGothicOne';
+    border: none;
+}
+
+q:before{
+    font-size: 30px;
+    color: #f48805;
+}
+q:after{
+    font-size: 30px;
+    color: #f48805;
+}

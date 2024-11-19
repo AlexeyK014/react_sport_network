@@ -1,0 +1,277 @@
+.aimPage {
+  background-color: #fff;
+  background-size: cover;
+  min-height: 100vh;
+  /* padding: 20px; */
+}
+
+.aimPage h1 {
+  display: flex;
+  justify-content: center;
+  font-family: "DelaGothicOne";
+  color: #333333;
+  font-weight: 100;
+}
+
+.textAim {
+  border: none;
+  width: 600px;
+  height: 60px;
+  background-color: #fbd09c;
+  margin-bottom: 10px;
+}
+
+.textAim::placeholder {
+  color: #333333;
+  opacity: 1;
+  font-family: "DelaGothicOne";
+  font-weight: 100;
+  opacity: 0.5;
+  padding: 3px;
+}
+
+.aimPage h3 {
+  margin: 20px;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.aim {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 20px 40px;
+  padding: 14px;
+  background-color: #fab662;
+  color: #2a2a2a;
+  font-size: 15px;
+  box-shadow: 1.5px 1.5px 3px #1111116c;
+}
+
+.aimTitle {
+  font-family: "Intro";
+  text-transform: uppercase;
+  font-size: 20px;
+  margin: 10px 0 10px 20px;
+  font-weight: 900;
+  color: #333333;
+}
+.aimTitleComplited {
+  font-family: "Intro";
+  text-transform: uppercase;
+  font-size: 20px;
+  margin: 10px 0 10px 20px;
+  font-weight: 900;
+  color: #333333;
+  text-decoration: line-through;
+  opacity: 0.7;
+}
+
+.description {
+  font-family: "Comfortaa";
+  color: #333333;
+  letter-spacing: 0.5px;
+  margin: 10px 0 5px 35px;
+}
+.descriptionCompleted {
+  font-family: "Comfortaa";
+  color: #333333;
+  letter-spacing: 0.5px;
+  margin: 10px 0 5px 35px;
+  text-decoration: line-through;
+  opacity: 0.7;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* .titleAim{
+  display: grid;
+  grid-template-columns: 15fr 1fr;
+
+} */
+
+.aimForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 30px 20px;
+}
+
+.aimFormBtn {
+  background-color: #f3a140;
+  color: #fff;
+  border: none;
+  width: 120px;
+  height: 40px;
+  margin: 15px;
+  font-family: var(--montserrat-font);
+  text-transform: uppercase;
+  font-family: "DelaGothicOne";
+  text-transform: uppercase;
+  padding: 3px;
+}
+
+.aimFormBtn:hover {
+  background-color: #95550c;
+  box-shadow: 0.2px 0.2px 5px rgba(0, 0, 0, 0.723);
+}
+
+.checkboxAim {
+  background-color: #fab662;
+}
+
+.blockCorrection {
+  display: flex;
+  align-items: center;
+  background-color: #f3a140;
+  /* padding: 10px; */
+  border-radius: 30px;
+}
+
+.blockCorrection svg {
+  margin: 5px;
+  color: #fff;
+}
+
+.blockCorrection svg:hover {
+  color: #da5502;
+}
+
+input[type=checkbox]{
+  height: 0;
+  width: 0; 
+  visibility: hidden;
+  position: absolute;
+}
+
+.complitedBlock label {
+  cursor: pointer;
+  text-indent: -9999px;
+  width: 40px;
+  height: 20px;
+  background: grey;
+  display: block;
+  border-radius: 100px;
+  position: relative;
+}
+
+.complitedBlock label:after {
+  content: '';
+  position: absolute;
+  top: 0.7px;
+  left: 2px;
+  width: 18px;
+  height: 18px;
+  background: #fff;
+  border-radius: 90px;
+  transition: 0.4s;
+}
+
+.complitedBlock input:checked + label {
+  background: #ab4201;
+}
+
+.complitedBlock input:checked + label:after {
+  left: calc(100% - 20px);
+  transform: translateX(0%);
+}
+
+.complitedBlock label:active:after {
+  width: 30px;
+}
+
+.editInput{
+  border: none;
+  width: 500px;
+  height: 40px;
+  background-color: #fbd09c;
+  margin-bottom: 10px;
+  font-family: "DelaGothicOne";
+  font-weight: 100;
+  opacity: 0.7;
+}
+
+.editBtn{
+  background-color: #f3a140;
+  color: #fff;
+  border: none;
+  width: 120px;
+  height: 40px;
+  margin: 15px;
+  font-family: var(--montserrat-font);
+  text-transform: uppercase;
+  font-family: "DelaGothicOne";
+  text-transform: uppercase;
+  padding: 3px;
+}
+
+
+.textHint {
+  position: relative;
+  display: inline-block;
+}
+
+.editTooltip {
+  visibility: hidden;
+  width: 120px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+
+  /* Расположите текст подсказки */
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -60px;
+
+  /* Исчезают в подсказке */
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.textHint .editTooltip::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+.textHint:hover .editTooltip {
+    visibility: visible;
+    opacity: 1;
+}
+
+
+.fonAim {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #000000;
+}
+
+.fonAim h1 {
+  color: #fff;
+  font-size: 130px;
+  font-weight: 900;
+  position: absolute;
+  text-transform: uppercase;
+  font-family: 'DelaGothicOne';
+}
+
+.fonImg {
+  max-width: 100%;
+  object-fit: contain;
+  opacity: 0.4;
+}

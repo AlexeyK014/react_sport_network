@@ -1,0 +1,133 @@
+.post {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin: 30px 0;
+  padding: 10px 40px 10px 40px;
+  /* background-color: #f3a140; */
+  background: linear-gradient(
+    to bottom right,
+    rgb(255, 155, 55),
+    rgba(255, 206, 150, 0.818)
+  );
+  box-shadow: 1px 1px 5px #646464ce;
+}
+
+.postContent {
+  padding: 7px;
+  font-family: "Montserrat";
+  font-size: 15px;
+  font-weight: 600;
+  color: #3b2d41;
+}
+
+.postContent h2 {
+  margin-top: none;
+}
+
+.postControl {
+  display: flex;
+  /* align-items: flex-start; */
+}
+
+.postControl button {
+  padding: 0;
+}
+
+.deleteBtn svg {
+  font-size: 32px;
+}
+
+.likePost {
+  background-color: #ffe6d8;
+  width: 32px;
+  padding-top: 4px;
+  padding-left: 4px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.editPost {
+  position: relative;
+  display: inline-block;
+}
+
+.editTooltip {
+  visibility: hidden;
+  width: 120px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+
+  /* Расположите текст подсказки */
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -60px;
+
+  /* Исчезают в подсказке */
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.editPost .editTooltip::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+.editPost:hover .editTooltip {
+    visibility: visible;
+    opacity: 1;
+}
+
+.deletePost {
+  position: relative;
+  display: inline-block;
+}
+
+.deleteTooltip {
+  visibility: hidden;
+  width: 120px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+
+  /* Расположите текст подсказки */
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -60px;
+
+  /* Исчезают в подсказке */
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.deletePost .deleteTooltip::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+.deletePost:hover .deleteTooltip {
+    visibility: visible;
+    opacity: 1;
+}

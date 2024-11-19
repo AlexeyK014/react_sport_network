@@ -1,0 +1,92 @@
+.chat {
+  display: grid;
+  grid-template-columns: 1fr 10fr;
+  margin: 30px 50px 30px 30px;
+  background-color: #f3a140;
+  padding: 10px 20px;
+  /* border-radius: 20px; */
+  box-shadow: 1px 1px 4px #3c3c3c;
+}
+.chat img {
+  width: 70px;
+  border-radius: 50%;
+}
+
+.message {
+  height: 550px;
+  /* height: 100%; */
+  overflow-y: auto;
+}
+
+.chatForm {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 30px;
+}
+
+.messageBlock {
+  margin: 5px 0;
+}
+
+.chatName {
+  font-family: "Comfortaa";
+  background-color: #ffffff6d;
+  border-radius: 10px;
+  padding: 3px 5px;
+  font-weight: 700;
+}
+
+.chatMessage {
+  margin-top: 15px;
+  font-family: "Comfortaa";
+}
+
+.textareaChat {
+  width: 300px;
+  height: 70px;
+  border: none;
+  padding: 5px;
+  margin-right: 20px;
+  background-color: #fbd09c;
+}
+
+.textareaChat::placeholder {
+  color: #333333;
+  font-family: "Comfortaa";
+}
+
+.btnChat {
+  border: none;
+  font-family: "DelaGothicOne";
+  padding: 10px;
+  margin-left: 15px;
+  color: #fff;
+  text-transform: uppercase;
+  background-color: #f3a140;
+}
+.btnChat:hover {
+  opacity: 0.7;
+}
+
+.fonChat {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #000000;
+}
+
+.fonChat h1 {
+  color: #fff;
+  font-size: 130px;
+  font-weight: 900;
+  position: absolute;
+  text-transform: uppercase;
+  font-family: 'DelaGothicOne';
+}
+
+.fonImg {
+  max-width: 100%;
+  object-fit: contain;
+  opacity: 0.4;
+}

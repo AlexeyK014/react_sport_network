@@ -139,7 +139,7 @@
 import React, { Component, Suspense } from 'react'
 import './App.css'
 // import 'antd/dist/antd.css'
-import { BrowserRouter, Link, Navigate, Route, Routes } from 'react-router-dom'
+import { BrowserRouter, HashRouter, Link, Navigate, Route, Routes } from 'react-router-dom'
 import { connect, Provider } from 'react-redux'
 import { compose } from 'redux'
 import store, { AppStateType } from './Components/Redux/redux-store.ts';
@@ -297,11 +297,11 @@ let AppContainer = compose<React.ComponentType>(
 const MainApp: React.FC = () => {
     const queryClient = new QueryClient()
     return <QueryClientProvider client={queryClient}>
-        <BrowserRouter>
+        <HashRouter>
             <Provider store={store}>
                 <AppContainer />
             </Provider>
-        </BrowserRouter>
+        </HashRouter>
     </QueryClientProvider>
 
 }

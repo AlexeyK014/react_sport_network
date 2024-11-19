@@ -1,0 +1,37 @@
+{
+  "files": {
+    "main.css": "/react_sport_network/static/css/main.13dc919e.css",
+    "main.js": "/react_sport_network/static/js/main.305614bf.js",
+    "static/css/249.98af6c8f.chunk.css": "/react_sport_network/static/css/249.98af6c8f.chunk.css",
+    "static/js/249.e41e5106.chunk.js": "/react_sport_network/static/js/249.e41e5106.chunk.js",
+    "static/css/548.c623deb6.chunk.css": "/react_sport_network/static/css/548.c623deb6.chunk.css",
+    "static/js/548.9ac4e9a9.chunk.js": "/react_sport_network/static/js/548.9ac4e9a9.chunk.js",
+    "static/js/787.d4aba7ab.chunk.js": "/react_sport_network/static/js/787.d4aba7ab.chunk.js",
+    "static/media/DelaGothicOne-Regular.ttf": "/react_sport_network/static/media/DelaGothicOne-Regular.a8761c8c6d54ccaa44db.ttf",
+    "static/media/fonAim1.jpg": "/react_sport_network/static/media/fonAim1.8e3ade5d427f677d9e09.jpg",
+    "static/media/fonLogin.jpg": "/react_sport_network/static/media/fonLogin.ecfc7d5bc699a4e48995.jpg",
+    "static/media/esquina-rounded-3.ttf": "/react_sport_network/static/media/esquina-rounded-3.e41ac346b469bf048984.ttf",
+    "static/media/Montserrat-Regular.ttf": "/react_sport_network/static/media/Montserrat-Regular.24785cc015b27a3e964b.ttf",
+    "static/media/fonNews2.jpg": "/react_sport_network/static/media/fonNews2.8bb2f649b7bc137c2c14.jpg",
+    "static/media/fonChat1.jpg": "/react_sport_network/static/media/fonChat1.26788330c4af3cf823d9.jpg",
+    "static/media/avaProfile.jpg": "/react_sport_network/static/media/avaProfile.04317b87600ba6698075.jpg",
+    "static/media/ФонОбщи2.jpg": "/react_sport_network/static/media/ФонОбщи2.78d928f5b93ddb84e6ed.jpg",
+    "static/media/RubikMonoOne-Regular.ttf": "/react_sport_network/static/media/RubikMonoOne-Regular.bca8f5015b00e4514972.ttf",
+    "static/media/Outfit-VariableFont_wght.ttf": "/react_sport_network/static/media/Outfit-VariableFont_wght.00c2ed1a3bf798b0da27.ttf",
+    "static/media/avaUsers.png": "/react_sport_network/static/media/avaUsers.ce737215761b351cbb46.png",
+    "static/media/RIMMA_SANS-BOLD_2.ttf": "/react_sport_network/static/media/RIMMA_SANS-BOLD_2.e9f1aa311a63a2c389fa.ttf",
+    "static/media/preloader.svg": "/react_sport_network/static/media/preloader.51278650fb507329a2894cf072f65e62.svg",
+    "index.html": "/react_sport_network/index.html",
+    "main.13dc919e.css.map": "/react_sport_network/static/css/main.13dc919e.css.map",
+    "main.305614bf.js.map": "/react_sport_network/static/js/main.305614bf.js.map",
+    "249.98af6c8f.chunk.css.map": "/react_sport_network/static/css/249.98af6c8f.chunk.css.map",
+    "249.e41e5106.chunk.js.map": "/react_sport_network/static/js/249.e41e5106.chunk.js.map",
+    "548.c623deb6.chunk.css.map": "/react_sport_network/static/css/548.c623deb6.chunk.css.map",
+    "548.9ac4e9a9.chunk.js.map": "/react_sport_network/static/js/548.9ac4e9a9.chunk.js.map",
+    "787.d4aba7ab.chunk.js.map": "/react_sport_network/static/js/787.d4aba7ab.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.13dc919e.css",
+    "static/js/main.305614bf.js"
+  ]
+}

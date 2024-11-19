@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/react_sport_network/static/css/main.13dc919e.css",
-    "main.js": "/react_sport_network/static/js/main.305614bf.js",
+    "main.js": "/react_sport_network/static/js/main.fb35d43d.js",
     "static/css/249.98af6c8f.chunk.css": "/react_sport_network/static/css/249.98af6c8f.chunk.css",
     "static/js/249.e41e5106.chunk.js": "/react_sport_network/static/js/249.e41e5106.chunk.js",
     "static/css/548.c623deb6.chunk.css": "/react_sport_network/static/css/548.c623deb6.chunk.css",
@@ -23,7 +23,7 @@
     "static/media/preloader.svg": "/react_sport_network/static/media/preloader.51278650fb507329a2894cf072f65e62.svg",
     "index.html": "/react_sport_network/index.html",
     "main.13dc919e.css.map": "/react_sport_network/static/css/main.13dc919e.css.map",
-    "main.305614bf.js.map": "/react_sport_network/static/js/main.305614bf.js.map",
+    "main.fb35d43d.js.map": "/react_sport_network/static/js/main.fb35d43d.js.map",
     "249.98af6c8f.chunk.css.map": "/react_sport_network/static/css/249.98af6c8f.chunk.css.map",
     "249.e41e5106.chunk.js.map": "/react_sport_network/static/js/249.e41e5106.chunk.js.map",
     "548.c623deb6.chunk.css.map": "/react_sport_network/static/css/548.c623deb6.chunk.css.map",
@@ -32,6 +32,6 @@
   },
   "entrypoints": [
     "static/css/main.13dc919e.css",
-    "static/js/main.305614bf.js"
+    "static/js/main.fb35d43d.js"
   ]
 }

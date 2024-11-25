@@ -1,11 +1,11 @@
 {
   "files": {
-    "main.css": "/react_sport_network/static/css/main.07b3b4f5.css",
-    "main.js": "/react_sport_network/static/js/main.4d7bd643.js",
+    "main.css": "/react_sport_network/static/css/main.a1e42c43.css",
+    "main.js": "/react_sport_network/static/js/main.13fbe782.js",
     "static/css/249.98af6c8f.chunk.css": "/react_sport_network/static/css/249.98af6c8f.chunk.css",
     "static/js/249.e41e5106.chunk.js": "/react_sport_network/static/js/249.e41e5106.chunk.js",
-    "static/css/548.c623deb6.chunk.css": "/react_sport_network/static/css/548.c623deb6.chunk.css",
-    "static/js/548.9ac4e9a9.chunk.js": "/react_sport_network/static/js/548.9ac4e9a9.chunk.js",
+    "static/css/548.7b82ed0d.chunk.css": "/react_sport_network/static/css/548.7b82ed0d.chunk.css",
+    "static/js/548.d4dbb68c.chunk.js": "/react_sport_network/static/js/548.d4dbb68c.chunk.js",
     "static/js/787.d4aba7ab.chunk.js": "/react_sport_network/static/js/787.d4aba7ab.chunk.js",
     "static/media/DelaGothicOne-Regular.ttf": "/react_sport_network/static/media/DelaGothicOne-Regular.a8761c8c6d54ccaa44db.ttf",
     "static/media/fonAim1.jpg": "/react_sport_network/static/media/fonAim1.8e3ade5d427f677d9e09.jpg",
@@ -21,17 +21,24 @@
     "static/media/avaUsers.png": "/react_sport_network/static/media/avaUsers.ce737215761b351cbb46.png",
     "static/media/RIMMA_SANS-BOLD_2.ttf": "/react_sport_network/static/media/RIMMA_SANS-BOLD_2.e9f1aa311a63a2c389fa.ttf",
     "static/media/preloader.svg": "/react_sport_network/static/media/preloader.51278650fb507329a2894cf072f65e62.svg",
+    "static/media/profile.svg": "/react_sport_network/static/media/profile.ac4f3afa16d9b9a6f5a5c20421b425ed.svg",
+    "static/media/users.svg": "/react_sport_network/static/media/users.7d90a802db8e8d3843703e4fda43bc56.svg",
     "index.html": "/react_sport_network/index.html",
-    "main.07b3b4f5.css.map": "/react_sport_network/static/css/main.07b3b4f5.css.map",
-    "main.4d7bd643.js.map": "/react_sport_network/static/js/main.4d7bd643.js.map",
+    "static/media/target.svg": "/react_sport_network/static/media/target.83e88407a52b002de17168a60b8488a2.svg",
+    "static/media/news.svg": "/react_sport_network/static/media/news.9eb3bd4a831e7a6b1ed4f57892620c2a.svg",
+    "static/media/chat.svg": "/react_sport_network/static/media/chat.922e61e2d1f13a6f743fa6c1792d3575.svg",
+    "static/media/right.svg": "/react_sport_network/static/media/right.9d1c94a3badb9986063567f699c223c4.svg",
+    "static/media/left.svg": "/react_sport_network/static/media/left.03b5e7a969a15ec79e9be83140711345.svg",
+    "main.a1e42c43.css.map": "/react_sport_network/static/css/main.a1e42c43.css.map",
+    "main.13fbe782.js.map": "/react_sport_network/static/js/main.13fbe782.js.map",
     "249.98af6c8f.chunk.css.map": "/react_sport_network/static/css/249.98af6c8f.chunk.css.map",
     "249.e41e5106.chunk.js.map": "/react_sport_network/static/js/249.e41e5106.chunk.js.map",
-    "548.c623deb6.chunk.css.map": "/react_sport_network/static/css/548.c623deb6.chunk.css.map",
-    "548.9ac4e9a9.chunk.js.map": "/react_sport_network/static/js/548.9ac4e9a9.chunk.js.map",
+    "548.7b82ed0d.chunk.css.map": "/react_sport_network/static/css/548.7b82ed0d.chunk.css.map",
+    "548.d4dbb68c.chunk.js.map": "/react_sport_network/static/js/548.d4dbb68c.chunk.js.map",
     "787.d4aba7ab.chunk.js.map": "/react_sport_network/static/js/787.d4aba7ab.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.07b3b4f5.css",
-    "static/js/main.4d7bd643.js"
+    "static/css/main.a1e42c43.css",
+    "static/js/main.13fbe782.js"
   ]
 }

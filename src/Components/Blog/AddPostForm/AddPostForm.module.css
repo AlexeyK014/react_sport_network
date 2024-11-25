@@ -23,7 +23,12 @@
     margin-right: 20px;
     margin-top: 15px;
     background-color: #f7d8b3;
-    /* background-color: #fbd09c; */
+    
+    
+    @media(max-width: 300px) {
+        width: 100px;
+        font-size: 10px;
+    }
 }
 
 .inputForm::placeholder{
@@ -40,6 +45,26 @@
     margin-right: 20px;
     margin-top: 15px;
     background-color: #f7d8b3;
+
+    @media(max-width: 570px) {
+        width: 400px;
+    }
+
+    @media(max-width: 480px) {
+        width: 330px;
+    }
+
+    @media(max-width: 400px) {
+        width: 270px;
+    }
+
+    @media(max-width: 340px) {
+        width: 230px;
+    }
+
+    @media(max-width: 300px) {
+        width: 180px;
+    }
 }
 
 .textareaForm::placeholder{

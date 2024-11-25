@@ -6,10 +6,21 @@
   padding: 10px 20px;
   /* border-radius: 20px; */
   box-shadow: 1px 1px 4px #3c3c3c;
+
+  
+  @media(max-width: 800px) {
+    position: relative;
+    bottom: 100px;
+  }
+
+  @media(max-width: 400px) {
+    margin: 20px;
+  }
 }
 .chat img {
   width: 70px;
   border-radius: 50%;
+  margin: 10px;
 }
 
 .message {
@@ -23,6 +34,20 @@
   flex-direction: row;
   align-items: center;
   margin: 30px;
+  background-color: #ff8165eb;
+  padding: 15px;
+
+  
+  @media(max-width: 800px) {
+    position: relative;
+    bottom: 80px;
+    margin: 0px;
+  }
+
+  @media(max-width: 540px) {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 .messageBlock {
@@ -49,6 +74,24 @@
   padding: 5px;
   margin-right: 20px;
   background-color: #fbd09c;
+
+  @media(max-width: 540px) {
+    margin-bottom: 15px;
+    margin-right: 0px;
+    width: 400px;
+  }
+
+  @media(max-width: 460px) {
+    width: 310px;
+  }
+
+  @media(max-width: 350px) {
+    width: 250px;
+  }
+
+  @media(max-width: 275px) {
+    width: 180px;
+  }
 }
 
 .textareaChat::placeholder {
@@ -83,6 +126,26 @@
   position: absolute;
   text-transform: uppercase;
   font-family: 'DelaGothicOne';
+
+  @media (max-width: 670px) {
+    font-size: 100px;
+  }
+
+  @media (max-width: 570px) {
+    font-size: 85px;
+  }
+
+  @media (max-width: 410px) {
+    font-size: 55px;
+  }
+
+  @media (max-width: 350px) {
+    font-size: 45px;
+  }
+
+  @media (max-width: 260px) {
+    font-size: 35px;
+  }
 }
 
 .fonImg {

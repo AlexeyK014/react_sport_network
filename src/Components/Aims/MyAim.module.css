@@ -19,6 +19,36 @@
   height: 60px;
   background-color: #fbd09c;
   margin-bottom: 10px;
+
+  @media (max-width: 920px) {
+    width: 550px;
+    height: 60px;
+  }
+
+  @media (max-width: 600px) {
+    width: 450px;
+    height: 60px;
+  }
+
+  @media (max-width: 500px) {
+    width: 380px;
+    height: 60px;
+  }
+
+  @media (max-width: 410px) {
+    width: 320px;
+    height: 60px;
+  }
+
+  @media (max-width: 340px) {
+    width: 260px;
+    height: 60px;
+  }
+
+  @media (max-width: 285px) {
+    width: 200px;
+    height: 60px;
+  }
 }
 
 .textAim::placeholder {
@@ -142,9 +172,9 @@ body {
   color: #da5502;
 }
 
-input[type=checkbox]{
+input[type="checkbox"] {
   height: 0;
-  width: 0; 
+  width: 0;
   visibility: hidden;
   position: absolute;
 }
@@ -161,7 +191,7 @@ input[type=checkbox]{
 }
 
 .complitedBlock label:after {
-  content: '';
+  content: "";
   position: absolute;
   top: 0.7px;
   left: 2px;
@@ -185,7 +215,7 @@ input[type=checkbox]{
   width: 30px;
 }
 
-.editInput{
+.editInput {
   border: none;
   width: 500px;
   height: 40px;
@@ -196,7 +226,7 @@ input[type=checkbox]{
   opacity: 0.7;
 }
 
-.editBtn{
+.editBtn {
   background-color: #f3a140;
   color: #fff;
   border: none;
@@ -209,7 +239,6 @@ input[type=checkbox]{
   text-transform: uppercase;
   padding: 3px;
 }
-
 
 .textHint {
   position: relative;
@@ -238,21 +267,20 @@ input[type=checkbox]{
 }
 
 .textHint .editTooltip::after {
-    content: "";
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    margin-left: -5px;
-    border-width: 5px;
-    border-style: solid;
-    border-color: #555 transparent transparent transparent;
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
 }
 
 .textHint:hover .editTooltip {
-    visibility: visible;
-    opacity: 1;
+  visibility: visible;
+  opacity: 1;
 }
-
 
 .fonAim {
   display: flex;
@@ -267,7 +295,43 @@ input[type=checkbox]{
   font-weight: 900;
   position: absolute;
   text-transform: uppercase;
-  font-family: 'DelaGothicOne';
+  font-family: "DelaGothicOne";
+
+  @media (max-width: 1240px) {
+    font-size: 120px;
+  }
+
+  @media (max-width: 1110px) {
+    font-size: 100px;
+  }
+
+  @media (max-width: 990px) {
+    font-size: 90px;
+  }
+
+  @media (max-width: 885px) {
+    font-size: 80px;
+  }
+
+  @media (max-width: 570px) {
+    font-size: 70px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 60px;
+  }
+
+  @media (max-width: 410px) {
+    font-size: 45px;
+  }
+
+  @media (max-width: 350px) {
+    font-size: 35px;
+  }
+
+  @media (max-width: 260px) {
+    font-size: 25px;
+  }
 }
 
 .fonImg {

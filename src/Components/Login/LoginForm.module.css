@@ -34,6 +34,11 @@
     letter-spacing: 5px;
     font-size: 40px;
     text-shadow: 1px 1px 4px #11111166;
+
+    @media(max-width: 400px){
+        font-size: 32px;
+        letter-spacing: 3px;
+    }
 }
 
 
@@ -46,6 +51,10 @@
     height: 30px;
     color: #fff;
     font-family: var(--montserrat-font);
+
+    @media(max-width: 400px){
+        width: 180px;
+    }
 }
 
 input::placeholder{

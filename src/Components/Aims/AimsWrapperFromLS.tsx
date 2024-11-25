@@ -7,6 +7,7 @@ import { Aim } from './Aim.tsx';
 import style from './MyAim.module.css'
 //@ts-ignore
 import fonAim from '../../img/fonAim1.jpg'
+import { withAuthRedirect } from '../../HOC/withAuthRedirect.tsx';
 uuidv4();
 
 export type NewTodosType = {
@@ -73,3 +74,5 @@ export const AimsWrapperFromLS: React.FC<{}> = () => {
     </div>
   )
 }
+
+export const EnchancedAimsWrapper = withAuthRedirect(AimsWrapperFromLS)

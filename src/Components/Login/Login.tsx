@@ -41,14 +41,14 @@ export const Login: React.FC = (props) => {
                     ТВОЙ СПОРТ
                     <span className={style.line}></span>
                 </span>
-{/* 
+
                 <p className={style.titleOne}>
                     Для спотрсменов и тренеров
                 </p>
 
                 <p className={style.subscribe}>
                     Присоединяйся!
-                </p> */}
+                </p>
                 
 
                 <div className={style.loginBlock}>

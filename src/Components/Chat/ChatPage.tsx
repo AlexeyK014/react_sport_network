@@ -104,7 +104,7 @@ const AddMessageForm: React.FC<{}> = () => {
     }
     return <div className={style.chatForm}>
         <span>
-            <textarea className={style.textareaChat} onChange={(e) => setMessage(e.currentTarget.value)} value={message}></textarea>
+            <textarea className={style.textareaChat} onChange={(e) => setMessage(e.currentTarget.value)} value={message} placeholder='Ваше сообщение...'></textarea>
         </span>
 
         <span>

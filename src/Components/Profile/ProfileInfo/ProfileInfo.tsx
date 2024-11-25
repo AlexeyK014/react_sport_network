@@ -27,6 +27,7 @@ const ProfileInfo: React.FC<PropsType & Params> = ({profile, userId}) => {
   const status = useSelector((state: AppStateType) => state.profilePage.status);
   const userIdState = useSelector((state: AppStateType) => state.auth.userId);
   let [editeMode, setEditeMode] = useState<boolean>(false);
+  
 
   const goToEditeMode = () => {
     setEditeMode(true)
@@ -67,11 +68,6 @@ const ProfileInfo: React.FC<PropsType & Params> = ({profile, userId}) => {
                 </div>
               }
             </div>
-          </div>
-
-
-
-          <div className={style.line}>
           </div>
         </div>
 

@@ -10,10 +10,30 @@
 
 .userPhoto {
   width: 100px;
+
+  @media(max-width: 360px) {
+    width: 80px;
+  }
+
+  @media(max-width: 360px) {
+    width: 65px;
+  }
 }
 
 .users {
   padding: 50px;
+
+  @media(max-width: 400px){
+    padding: 40px;
+  }
+
+  @media(max-width: 360px){
+    padding: 30px;
+  }
+
+  @media(max-width: 300px){
+    padding: 20px;
+  }
 }
 
 .user {
@@ -29,6 +49,10 @@
   margin: 0 30px;
   font-family: "Comfortaa";
   margin-bottom: 10px;
+
+  @media(max-width: 300px) {
+    margin: 0 0 0 15px;
+  }
 }
 
 .infoLeft {
@@ -50,11 +74,29 @@
 .nameUsers {
   font-size: 18px;
   margin-bottom: 10px;
+  margin-right: 10px;
   font-family: "DelaGothicOne";
   color: #3b2d41;
+  word-break: break-all;
+
+  @media(max-width: 460px) {
+    font-size: 12px;
+  }
+   
+  @media(max-width: 360px) {
+    font-size: 10px;
+  }
+   
+  @media(max-width: 300px) {
+    font-size: 9px;
+  }
+
 }
 
 .info button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border: none;
   font-family: "DelaGothicOne";
   padding: 10px;
@@ -62,6 +104,22 @@
   text-transform: uppercase;
   background-color: #ffffff;
   width: 150px;
+
+  @media(max-width: 460px) {
+    width: 100px;
+  }
+
+  @media(max-width: 360px) {
+    width: 80px;
+    height: 15px;
+    font-size: 12px;
+  }
+
+  @media(max-width: 300px) {
+    width: 65px;
+    height: 13px;
+    font-size: 10px;
+  }
 }
 .info button:hover {
   background-color: #f6c28b;
@@ -82,19 +140,40 @@ h3 {
   font-family: "Comfortaa";
 }
 
+.searchForm {
+  @media(max-width: 410px) {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
 .searchForm input {
   border: none;
   font-family: "Comfortaa";
   margin: 0 10px;
+
+  @media(max-width: 410px) {
+    margin: 6px;
+  }
 }
 .searchForm select {
   border: none;
   font-family: "Comfortaa";
+
+  @media(max-width: 410px) {
+    margin: 6px;
+  }
 }
 .searchForm button {
   border: none;
   font-family: "Comfortaa";
   margin: 0 10px;
+  background-color: #b0b0b0;
+
+  @media(max-width: 484px) {
+    margin-top: 10px;
+    margin-bottom: 15px;
+  }
 }
 
 .fonUsers {
@@ -102,6 +181,7 @@ h3 {
   justify-content: center;
   align-items: center;
   background-color: #000000;
+
 }
 
 .fonUsers h1 {
@@ -111,6 +191,38 @@ h3 {
   position: absolute;
   text-transform: uppercase;
   font-family: "DelaGothicOne";
+
+  @media(max-width: 1340px) {
+    font-size: 90px;
+  }
+
+  @media(max-width: 1240px) {
+    font-size: 80px;
+  }
+
+  @media(max-width: 1110px) {
+    font-size: 70px;
+  }
+
+  @media(max-width: 990px) {
+    font-size: 60px;
+  }
+
+  @media(max-width: 885px) {
+    font-size: 50px;
+  }
+
+  @media(max-width: 570px) {
+    font-size: 40px;
+  }
+
+  @media(max-width: 460px) {
+    font-size: 30px;
+  }
+
+  @media(max-width: 350px) {
+    font-size: 22px;
+  }
 }
 
 .fonImg {

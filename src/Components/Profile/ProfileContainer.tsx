@@ -44,7 +44,7 @@ export const ProfielPage: React.FC = () => {
             //@ts-ignore
             dispatch(getStatus(userId) as unknown as AnyAction);
         }
-        console.log(userId);
+        console.log(authorizedUserId);
 
     }
 
@@ -68,6 +68,7 @@ export const ProfielPage: React.FC = () => {
 
     return <div className={style.profile}>
         <Profile
+            userId={userId}
             profile={profile}
         />
     </div>

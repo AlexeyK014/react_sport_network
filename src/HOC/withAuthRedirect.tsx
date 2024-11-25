@@ -20,7 +20,7 @@ export function withAuthRedirect<WCP>(WrappedComponent: React.ComponentType<WCP>
             //////  Редирект ///////
             if(!isAuth){             
                 // проверяем, если мы не авторизованны, тогда нас перенаправляет на страницу логина
-                return <Navigate to={ "/login"}/>
+                return <Navigate to={"/login"}/>
             }
             
             //@ts-ignore

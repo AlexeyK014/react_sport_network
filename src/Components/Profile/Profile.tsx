@@ -17,9 +17,6 @@ export let Profile: React.FC<PropsType & Params> = ({profile, userId}) => {
                 //@ts-ignore
                 userId={userId}
                 />
-            {/* <Blog />    */}
-            {/* <MyPostsContainer userId={userId}/> */}
-            {/* <MyPosts /> */}
             <Blog />
         </div>
     )

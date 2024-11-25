@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
 import { AppStateType } from "../Redux/redux-store";
 import { useDispatch } from "react-redux";
@@ -13,13 +13,10 @@ import style from './Header.module.css';
 import userProfile from '../../img/avaUsers.png'
 
 
-type Params = {
-    userId: string | undefined;
-}
 
 const { Header } = Layout;
 
-export const AppHeader: React.FC<{}> = ({userId}) => {
+export const AppHeader: React.FC<{}> = ({ userId }) => {
     const isAuth = useSelector(selectAuth);
     const login = useSelector(selectCurrentUserLogin);
     const profile = useSelector((state: AppStateType) => state.profilePage.profile);
@@ -27,7 +24,21 @@ export const AppHeader: React.FC<{}> = ({userId}) => {
     const userIdState = useSelector((state: AppStateType) => state.auth.userId);
     const authorizedUserId = useSelector((state: AppStateType) => state.auth.userId);
 
-    console.log(profile);
+    const [windowSize, setWindowSize] = useState({
+        width: window.innerWidth,
+        height: window.innerHeight,
+    });
+
+    useEffect(() => {
+        window.onresize = () => {
+            setWindowSize({
+                width: window.innerWidth,
+                height: window.innerHeight,
+            });
+        };
+    }, []);
+
+    // console.log(profile);
 
 
     const dispatch = useDispatch();
@@ -44,21 +55,24 @@ export const AppHeader: React.FC<{}> = ({userId}) => {
             <Row className={'headerBlock'}>
 
                 <Col span={18}>
+
                     <span className={style.title}>
                         <span className={style.line}></span>
                         ТВОЙ СПОРТ
                         <span className={style.line}></span>
-                    </span></Col>
+                    </span>
+
+                </Col>
                 {isAuth
                     ? <>
                         <Col span={1}>
-                            <div profile={profile} userId={userId}>
-                                <img 
-                                    src={profile?.photos.large} 
-                                    className={style.avatarHeader} 
+                            <div profile={profile} userId={userId} className={style.avaBlog}>
+                                <img
+                                    src={profile?.photos.large}
+                                    className={style.avatarHeader}
                                     // src={+userId === userIdState && (profile?.photos.large || userProfile) || (profile?.photos.large || userProfile) } 
                                     // className={style.avatarHeader} 
-                                    alt="avatarProfile">                                    
+                                    alt="avatarProfile">
                                 </img>
                             </div>
                         </Col>

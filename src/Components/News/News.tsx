@@ -7,9 +7,10 @@ import authorAvatar from '../../img/avaProfile.jpg'
 //@ts-ignore
 import fonNews from '../../img/fonNews2.jpg'
 import { NewDataType } from "../../Types/Types";
+import { withAuthRedirect } from "../../HOC/withAuthRedirect.tsx";
 
 
-const News: React.FC<{}> = () => {
+export const News: React.FC<{}> = () => {
     const [loading, setLoading] = useState<boolean>(false)
     const [newsData, setNewsData] = useState<NewDataType[]>([]);
 
@@ -69,4 +70,4 @@ const News: React.FC<{}> = () => {
     )
 }
 
-export default News;
+export const EnchancedNews = withAuthRedirect(News)

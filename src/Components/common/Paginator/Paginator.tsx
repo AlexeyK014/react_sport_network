@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import styles from './Paginator.module.css';
 import classNames from "classnames";
 import { PaginatorPropsType } from "../../../Types/Types";
+import prevBtn from '../../../img/left.svg'
+import nextBtn from '../../../img/right.svg'
 
 let Paginator: React.FC<PaginatorPropsType> = ({ totalUsersCount,
         pageSize,
@@ -24,7 +26,9 @@ let Paginator: React.FC<PaginatorPropsType> = ({ totalUsersCount,
 
         return <div className={styles.paginator}>
                 {portionNumber > 1 &&
-                        <button onClick={() => { setPortionNumber(portionNumber - 1) }}>prev</button>}
+                        <button onClick={() => { setPortionNumber(portionNumber - 1) }}>
+                                <img src={prevBtn}/>
+                        </button>}
 
                 {pages
                         .filter(p => p >= leftPortionPageNumber && p <= rigthPortionPageNumber)
@@ -37,7 +41,9 @@ let Paginator: React.FC<PaginatorPropsType> = ({ totalUsersCount,
                         })}
 
                 {portionCount > portionNumber &&
-                        <button onClick={() => { setPortionNumber(portionNumber + 1) }}>next</button>}
+                        <button onClick={() => { setPortionNumber(portionNumber + 1) }}>
+                                <img src={nextBtn}/>
+                        </button>}
         </div>
 
 }

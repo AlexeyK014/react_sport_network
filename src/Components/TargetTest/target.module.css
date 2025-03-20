@@ -1,0 +1,16 @@
+.targetPage {
+    display: flex;
+    margin: 20px;
+}
+
+.completedBlog {
+    flex: 1
+}
+
+.process {
+    flex: 1
+}
+
+.future {
+    flex: 1
+}

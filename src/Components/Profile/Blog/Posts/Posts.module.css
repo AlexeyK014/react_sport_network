@@ -1,0 +1,184 @@
+.post {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 7px;
+
+  margin: 30px 0;
+  padding: 10px 10px 10px 10px;
+  /* background-color: #f3a140; */
+  background: linear-gradient(
+    to bottom right,
+    rgb(255, 155, 55),
+    rgba(255, 206, 150, 0.818)
+  );
+  box-shadow: 1px 1px 5px #646464ce;
+
+  @media (max-width: 1065px) {
+    padding: 10px;
+  }
+}
+
+.postContent {
+  padding: 0px;
+  font-family: "Montserrat";
+  font-size: 14px;
+  font-weight: 600;
+  color: #3b2d41;
+}
+
+.titlePost {
+  font-size: 20px;
+  margin-top: none;
+  font-family: "Montserrat";
+  
+  
+  @media (max-width: 1300px) {
+    font-size: 19px;
+    margin-bottom: 5px;
+  }
+}
+
+.postControl {
+  display: flex;
+  margin-left: 5px;
+  margin-top: 12px;
+}
+
+.postControl button {
+  /* padding: 5px; */
+}
+
+.deleteBtn svg {
+  font-size: 32px;
+}
+
+.likeButton {
+  margin-right: 15px;
+}
+
+.editPost {
+  position: relative;
+  display: inline-block;
+}
+
+.editTooltip {
+  visibility: hidden;
+  width: 120px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+
+  /* Расположите текст подсказки */
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -60px;
+
+  /* Исчезают в подсказке */
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.editPost .editTooltip::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+.editPost:hover .editTooltip {
+    visibility: visible;
+    opacity: 1;
+}
+
+.deletePost {
+  position: relative;
+  display: inline-block;
+}
+
+.deleteTooltip {
+  visibility: hidden;
+  width: 120px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+
+  /* Расположите текст подсказки */
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -60px;
+
+  /* Исчезают в подсказке */
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.deletePost .deleteTooltip::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+.deletePost:hover .deleteTooltip {
+    visibility: visible;
+    opacity: 1;
+}
+
+.btnLike{
+  border: none;
+  color: #394350;
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background-color: #dee0e2;
+  border-radius: 4px;
+  padding: 6px 15px;
+  margin-top: 0 10px;
+}
+
+.likeActive{
+  color: #012a30;
+  background-color: #cdf6fc;
+}
+
+.infoUser {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.avatarHeader {
+  width: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.descriptionPost {
+  line-height: 1.7;
+  
+  @media (max-width: 1300px) {
+    font-size: 14px;
+  }
+  
+  @media (max-width: 922px) {
+    font-size: 12px;
+  }
+}

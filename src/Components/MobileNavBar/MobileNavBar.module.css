@@ -1,3 +1,6 @@
+.navbarBlog {
+  display: flex;
+}
 .navbar {
   position: fixed;
   bottom: 0;
@@ -9,6 +12,7 @@
   align-items: flex-end;
   justify-content: space-around;
   z-index: 100;
+  max-width: 100vw;
 }
 
 .itemMenu {
@@ -19,8 +23,22 @@
 
 .itemMenu img {
   width: 25px;
+
+
+  @media(max-width: 420px){
+    width: 20px;
+  }
+
+  @media(max-width: 350px){
+    width: 18px;
+  }
 }
 .titleMenu{
   color: #fff;
   font-family: 'Montserrat';
+
+  
+  @media(max-width: 505px){
+    display: none;
+  }
 }

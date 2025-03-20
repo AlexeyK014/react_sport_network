@@ -1,33 +1,40 @@
-import React, { ChangeEvent, useState } from "react";
+import React, { useEffect, useState } from "react";
 //@ts-ignore
 import style from './ProfileInfo.module.css'
-import ProfileStatusHOOKS from "./ProfileStatusHOOKS.tsx";
+import ProfileStatusHOOKS from "./ProfileStatus/ProfileStatusHOOKS.tsx";
 import Preloader from "../../common/Preloader/Preloader.tsx";
 import ProfileFormik from "./ProfileFormik.tsx";
-import { PhotosType, PropsType } from "../../../Types/Types.ts";
-import { useSelector } from "react-redux";
-import { AppStateType } from "../../Redux/redux-store.ts";
-import { Params } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { savePhoto } from "../../Redux/profile-reducer.ts";
-import { AnyAction } from "redux";
-import { ThunkDispatch } from "redux-thunk";
-//@ts-ignore
-import userProfile from '../../../img/avaUsers.png'
 import ProfileData from "./ProfileData.tsx";
+import { Blog } from "../Blog/Blog.tsx";
+import { useUpdatedProfileMutation } from "../../../reduxToolkit/profile/slice.ts";
+import ProfilePhoto from "./ProfilePhoto.tsx";
+import { ProfileInfoType } from "../../../Types/Types.ts";
+import TargetBlog from "./TargetBlog.tsx";
+import ProfileAdap from "./ProfileAdap.tsx";
 
 
-
-type State = { photos: PhotosType };
-type AppDispatch = ThunkDispatch<State, any, AnyAction>;
-
-
-const ProfileInfo: React.FC<PropsType & Params> = ({profile, userId}) => {
-  const dispatch: AppDispatch = useDispatch();
-  const status = useSelector((state: AppStateType) => state.profilePage.status);
-  const userIdState = useSelector((state: AppStateType) => state.auth.userId);
+const ProfileInfo: React.FC<ProfileInfoType> = ({
+  profile,
+  id,
+  userId,
+  refetch
+}) => {
   let [editeMode, setEditeMode] = useState<boolean>(false);
-  
+  const [updatedProfile, { isLoading }] = useUpdatedProfileMutation();
+
+  const [width, setWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = (event) => {
+      const windowInnerWidth = event.target.innerWidth
+      setWidth(windowInnerWidth);
+    };
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
 
   const goToEditeMode = () => {
     setEditeMode(true)
@@ -35,62 +42,76 @@ const ProfileInfo: React.FC<PropsType & Params> = ({profile, userId}) => {
 
 
   if (!profile) {
-    return <Preloader />
-  }
-
-
-  const savePhotoUser = (photos: PhotosType) => {
-    dispatch(savePhoto(photos) as unknown as AnyAction)
-  }
-
-  const onMainPhotoSelected = (e: ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files?.length) {
-      //@ts-ignore
-      savePhotoUser(e.target.files[0])
-    }
+    return <Preloader
+    />
   }
 
   return (
     <div className={style.profilePage}>
-      <div className={style.blogTop}>
-        <div className={style.blogTopLeft}>
-          <div className={style.slogan}>
-            <p className={style.sloganText}>
-              Никогда не сдавайся!
-            </p>
-            <div className={style.changePhoto}>
-              {+userId === userIdState &&
-                <div>
-                  <input onChange={onMainPhotoSelected} name="file" type="file" id="input__file" className={style.input__file} multiple />
-                  <label htmlFor="input__file" className={style.inputFileButton}>
-                    <span className={style.inputFileButtonText}>Поменять аватар</span>
-                  </label>
+      {width <= 900 && <ProfileAdap
+        profile={profile}
+        userId={userId}
+        id={id ? Number(id) : null}
+        //@ts-ignore
+        updatedProfile={updatedProfile}
+        refetch={refetch}
+      />}
+
+      {width > 900 &&
+        <>
+          <div className={style.profileLeft}>
+
+
+            <div className={style.blogLeftTop}>
+                  <ProfileStatusHOOKS userId={userId} id={id} />
+
+              <ProfilePhoto />
+
+              <div className={style.nameUser}>{profile.fullName}</div>
+            </div>
+
+            {userId !== null && id !== null && +userId === +id
+              ? (
+                <div className={style.blog}>
+                  <Blog userId={userId} />
                 </div>
+              )
+              : (
+                <div className={style.notBlog}>
+                  <p>Пользователь не ведет блог</p>
+                  <p>...</p>
+                </div>
+              )
+
+            }
+          </div>
+
+          <div className={style.profileRight}>
+            <div className={style.profileData}>
+              {editeMode
+                ? <ProfileFormik
+                  profile={profile}
+                  exitToEditForm={() => { setEditeMode(false) }}
+                  //@ts-ignore
+                  updatedProfile={updatedProfile}
+                  isLoading={isLoading}
+                  refetch={refetch}
+                />
+                :
+                <ProfileData
+                  profile={profile}
+                  id={id}
+                  userId={userId}
+                  goToEditeMode={goToEditeMode}
+                />
               }
             </div>
+
+            <TargetBlog />
+
           </div>
-        </div>
-
-        <div className={style.blogTopRight}>
-          <div className={style.quote}>
-            <blockquote>
-              <ProfileStatusHOOKS status={status} />
-            </blockquote>
-          </div>
-          <img src={profile.photos.large || userProfile} alt="profileFoto" className={style.mainPhoto} />
-        </div>
-      </div>
-
-
-      <div className={style.profileData}>
-        {editeMode
-        //@ts-ignore
-          ? <ProfileFormik profile={profile} exitToEditForm={() => { setEditeMode(false) }} goToEditeMode={goToEditeMode} />
-          //@ts-ignore
-          : <ProfileData userId={userId} userIdState={userIdState} profile={profile} goToEditeMode={goToEditeMode} />
-        }
-      </div>
-
+        </>
+      }
 
     </div>
   )

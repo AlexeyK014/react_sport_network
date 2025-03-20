@@ -1,12 +1,27 @@
-import React from "react";
+import React, { useEffect } from "react";
 //@ts-ignore
 import style from './Users.module.css';
 //@ts-ignore
 import avaUsers from '../../img/avaUsers.png';
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { UserPropsType } from "../../Types/Types";
 
-let User: React.FC<UserPropsType> = ({ user, followingInProgress, unfollowTC, followTC }) => {
+let User: React.FC<UserPropsType> = ({
+    user,
+    refetch,
+    follow,
+    unfollow, 
+}) => {
+    const navigate = useNavigate()
+    const location = useLocation()
+
+    useEffect(() => {
+        if (location.pathname === '/users') {
+            navigate({
+                pathname: '/users',
+            })
+        } 
+    }, [])
 
     return (
         <div className={style.userPage}>
@@ -22,12 +37,27 @@ let User: React.FC<UserPropsType> = ({ user, followingInProgress, unfollowTC, fo
                 <span className={style.info}>
                     <div className={style.infoLeft}>
                         <span className={style.nameUsers}>{user.name}</span>
-
-                        {user.followed
-                            ? <button className={style.unFollowBtn} disabled={followingInProgress.some(id => id === user.id)} // some - если хоть одна id равна id  пользователя
-                                onClick={() => { unfollowTC(user.id) }}>Unfollow</button>
-                            : <button className={style.followBtn} disabled={followingInProgress.some(id => id === user.id)}
-                                onClick={() => { followTC(user.id) }}>Follow</button>
+                        {/* {isLoading && <p>Загрузка...</p>} */}
+                        {user.followed === true
+                            ? <button
+                                className={style.unFollowBtn}
+                                onClick={async() =>{
+                                    await unfollow({ ...user, followed: !user.followed });
+                                    refetch()
+                                }}
+                            >
+                                Unfollow
+                            </button>
+                            : <button
+                                className={style.followBtn}
+                                id={`${user.id}`}
+                                onClick={async() =>{
+                                    await follow({ ...user, followed: !user.followed });
+                                    refetch()
+                                }}
+                            >
+                                Follow
+                            </button>
                         }
                     </div>
 
@@ -37,11 +67,10 @@ let User: React.FC<UserPropsType> = ({ user, followingInProgress, unfollowTC, fo
                             : ''
                         }
                     </div>
-
+                    
 
                 </span>
             </span>
-
 
         </div>)
 

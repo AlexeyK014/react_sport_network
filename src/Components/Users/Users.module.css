@@ -1,38 +1,64 @@
+.usersPage {
+  background-color: #fbeede;
+}
+
 .userPage {
-  background: linear-gradient(
+  /* background: linear-gradient(
     to bottom right,
     rgb(249, 145, 33),
     rgb(252, 191, 125)
-  );
+  ); */
 
   margin-bottom: 10px;
 }
 
 .userPhoto {
   width: 100px;
+  margin-left: 20px;
 
-  @media(max-width: 360px) {
-    width: 80px;
+  @media (max-width: 470px) {
+    width: 55px;
+    margin-left: 5px;
   }
 
-  @media(max-width: 360px) {
-    width: 65px;
+  @media (max-width: 400px) {
+    width: 50px;
   }
+
+  @media (max-width: 360px) {
+    width: 40px;
+    margin-left: 3px;
+  }
+
+  @media (max-width: 280px) {
+    width: 40px;
+    margin-left: 3px;
+  }
+
+
 }
 
 .users {
-  padding: 50px;
+  margin: 20px;
 
-  @media(max-width: 400px){
+  img {
+    border-radius: 50%;
+  }
+
+  @media (max-width: 400px) {
     padding: 40px;
   }
 
-  @media(max-width: 360px){
+  @media (max-width: 360px) {
     padding: 30px;
   }
 
-  @media(max-width: 300px){
+  @media (max-width: 300px) {
     padding: 20px;
+  }
+
+  @media (max-width: 280px) {
+    padding: 5px;
   }
 }
 
@@ -40,6 +66,12 @@
   display: grid;
   grid-template-columns: 2fr 10fr;
   padding: 20px;
+  background-color: #f6c28b;
+  border-radius: 20px;
+
+  @media(max-width: 400px){
+    padding: 20px 10px;
+  }
 }
 
 .info {
@@ -50,8 +82,20 @@
   font-family: "Comfortaa";
   margin-bottom: 10px;
 
-  @media(max-width: 300px) {
+  @media (max-width: 888px) {
+    margin: 0 10px;
+  }
+
+  @media (max-width: 470px) {
+    margin: 0 0 0 5px;
+  }
+
+  @media (max-width: 400px) {
     margin: 0 0 0 15px;
+  }
+
+  @media (max-width: 310px) {
+    margin: 0 0 0 7px;
   }
 }
 
@@ -69,6 +113,22 @@
   letter-spacing: 0.5px;
   font-weight: 100;
   font-family: "Rubik";
+
+  @media(max-width: 888px) {
+    font-size: 9px;
+  }
+
+  @media(max-width: 660px) {
+    font-size: 8px;
+  }
+
+  @media(max-width: 600px) {
+    font-size: 8px;
+  }
+
+  @media(max-width: 385px) {
+    font-size: 6px;
+  }
 }
 
 .nameUsers {
@@ -79,21 +139,20 @@
   color: #3b2d41;
   word-break: break-all;
 
-  @media(max-width: 460px) {
-    font-size: 12px;
+  @media (max-width: 460px) {
+    font-size: 15px;
   }
-   
-  @media(max-width: 360px) {
+
+  @media (max-width: 385px) {
     font-size: 10px;
   }
-   
-  @media(max-width: 300px) {
+
+  @media (max-width: 300px) {
     font-size: 9px;
   }
-
 }
 
-.info button {
+.followBtn {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -104,34 +163,78 @@
   text-transform: uppercase;
   background-color: #ffffff;
   width: 150px;
+  border-radius: 10px;
 
-  @media(max-width: 460px) {
-    width: 100px;
-  }
-
-  @media(max-width: 360px) {
+  @media (max-width: 570px) {
     width: 80px;
-    height: 15px;
     font-size: 12px;
   }
 
-  @media(max-width: 300px) {
-    width: 65px;
-    height: 13px;
-    font-size: 10px;
+  @media (max-width: 460px) {
+    width: 80px;
+    font-size: 12px;
+  }
+
+  @media (max-width: 400px) {
+    width: 70px;
+    height: 20px;
+    font-size: 9px;
+  }
+
+  @media (max-width: 300px) {
+    width: 55px;
+    padding: 0;
+    font-size: 7px;
   }
 }
-.info button:hover {
-  background-color: #f6c28b;
-  color: #ffffff;
-}
 
-.followBtn {
-  border: none;
+.unFollowBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #f48805;
   font-family: "DelaGothicOne";
   padding: 10px;
   color: #f48805;
   text-transform: uppercase;
+  background-color: transparent;
+  width: 150px;
+  border-radius: 10px;
+
+  @media (max-width: 570px) {
+    width: 80px;
+    font-size: 10px;
+  }
+
+  @media (max-width: 460px) {
+    width: 90px;
+    font-size: 12px;
+  }
+
+  @media (max-width: 400px) {
+    width: 60px;
+    height: 20px;
+    font-size: 7px;
+  }
+
+  @media (max-width: 300px) {
+    width: 55px;
+    padding: 0;
+    font-size: 6px;
+  }
+}
+
+.followBtn:hover {
+  background-color: transparent;
+  border: 2px solid #fff;
+  color: #fff;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.unFollowBtn:hover {
+  background-color: #f48805;
+  color: #fff;
+  transition: background-color 0.2s ease-in-out;
 }
 
 h3 {
@@ -141,7 +244,7 @@ h3 {
 }
 
 .searchForm {
-  @media(max-width: 410px) {
+  @media (max-width: 410px) {
     display: flex;
     flex-direction: column;
   }
@@ -152,7 +255,7 @@ h3 {
   font-family: "Comfortaa";
   margin: 0 10px;
 
-  @media(max-width: 410px) {
+  @media (max-width: 410px) {
     margin: 6px;
   }
 }
@@ -160,7 +263,7 @@ h3 {
   border: none;
   font-family: "Comfortaa";
 
-  @media(max-width: 410px) {
+  @media (max-width: 410px) {
     margin: 6px;
   }
 }
@@ -170,63 +273,26 @@ h3 {
   margin: 0 10px;
   background-color: #b0b0b0;
 
-  @media(max-width: 484px) {
+  @media (max-width: 484px) {
     margin-top: 10px;
     margin-bottom: 15px;
   }
 }
 
-.fonUsers {
+.formBlog {
+  display: flex;
+  flex-direction: row;
+}
+
+.formInput {
+  margin-right: 20px;
+}
+
+.usersTitle {
   display: flex;
   justify-content: center;
-  align-items: center;
-  background-color: #000000;
-
-}
-
-.fonUsers h1 {
-  color: #fff;
-  font-size: 100px;
-  font-weight: 900;
-  position: absolute;
-  text-transform: uppercase;
   font-family: "DelaGothicOne";
-
-  @media(max-width: 1340px) {
-    font-size: 90px;
-  }
-
-  @media(max-width: 1240px) {
-    font-size: 80px;
-  }
-
-  @media(max-width: 1110px) {
-    font-size: 70px;
-  }
-
-  @media(max-width: 990px) {
-    font-size: 60px;
-  }
-
-  @media(max-width: 885px) {
-    font-size: 50px;
-  }
-
-  @media(max-width: 570px) {
-    font-size: 40px;
-  }
-
-  @media(max-width: 460px) {
-    font-size: 30px;
-  }
-
-  @media(max-width: 350px) {
-    font-size: 22px;
-  }
-}
-
-.fonImg {
-  max-width: 100%;
-  object-fit: contain;
-  opacity: 0.4;
+  color: #333333;
+  font-weight: 100;
+  font-size: 30px;
 }

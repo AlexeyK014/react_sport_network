@@ -5,6 +5,10 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  padding-bottom: 200px;
+  @media(max-width: 800px) {
+    margin-bottom: 200px;
+  }
 }
 
 code {
@@ -41,4 +45,8 @@ code {
 @font-face {
   font-family: 'Montserrat';
   src: url("../src/Fonts/Montserrat/static/Montserrat-Regular.ttf");
+}
+
+.ant-btn-primary:hover {
+  color: #ff0000; /* Красный цвет текста при наведении */
 }

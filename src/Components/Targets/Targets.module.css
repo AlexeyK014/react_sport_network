@@ -1,0 +1,259 @@
+.targetPage {
+  background-color: #fbeede;
+  background-size: cover;
+  min-height: 100vh;
+}
+
+.targetPage h1 {
+  display: flex;
+  justify-content: center;
+  font-family: "DelaGothicOne";
+  color: #333333;
+  font-weight: 100;
+}
+
+
+.textAim {
+  border: none;
+  width: 600px;
+  height: 60px;
+  background-color: #ffdfb8;
+  margin-bottom: 10px;
+  
+
+  @media (max-width: 920px) {
+    width: 550px;
+    height: 60px;
+  }
+
+  @media (max-width: 600px) {
+    width: 450px;
+    height: 60px;
+  }
+
+  @media (max-width: 500px) {
+    width: 380px;
+    height: 60px;
+  }
+
+  @media (max-width: 410px) {
+    width: 320px;
+    height: 60px;
+  }
+
+  @media (max-width: 340px) {
+    width: 260px;
+    height: 60px;
+  }
+
+  @media (max-width: 285px) {
+    width: 200px;
+    height: 60px;
+  }
+}
+
+.textAim::placeholder {
+  color: #333333;
+  opacity: 1;
+  font-family: "DelaGothicOne";
+  font-weight: 100;
+  opacity: 0.5;
+  padding: 3px;
+}
+
+.targetBtn {
+  background-color: #f3a140;
+  color: #fff;
+  border: none;
+  width: 120px;
+  height: 40px;
+  margin: 15px;
+  font-family: var(--montserrat-font);
+  text-transform: uppercase;
+  font-family: "DelaGothicOne";
+  text-transform: uppercase;
+  padding: 3px;
+  border-radius: 7px;
+}
+
+.targetBtn:hover {
+  background-color: #ffffff;
+  color: #f3a140;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.ant-btn-primary:hover {
+  color: #ff0000; /* Красный цвет текста при наведении */
+}
+
+.target {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-between;
+  margin: 20px 40px;
+  padding: 14px;
+  background-color: #fab662;
+  color: #2a2a2a;
+  font-size: 15px;
+  box-shadow: 1.5px 1.5px 3px #1111116c;
+  border-radius: 20px;
+
+  
+  @media(max-width: 360px) {
+    padding-left: 7px;
+  }
+}
+
+.targetBlock {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.targetTitle {
+  font-family: "Montserrat";
+  text-transform: uppercase;
+  font-size: 20px;
+  margin: 10px 0 10px 20px;
+  font-weight: 900;
+  color: #333333;
+
+  @media(max-width: 500px) {
+    font-size: 15px;
+  }
+  
+  @media(max-width: 360px) {
+    font-size: 11px;
+  }
+  
+  @media(max-width: 290px) {
+    font-size: 9px;
+  }
+
+  @media(max-width: 290px) {
+    font-size: 8px;
+  }
+}
+
+.targetTitleComplited {
+  font-family: "Montserrat";
+  text-transform: uppercase;
+  font-size: 20px;
+  margin: 10px 0 10px 20px;
+  font-weight: 900;
+  color: #333333;
+  text-decoration: line-through;
+  opacity: 0.7;
+
+  
+  @media(max-width: 500px) {
+    font-size: 15px;
+  }
+  
+  @media(max-width: 360px) {
+    font-size: 11px;
+  }
+  
+  @media(max-width: 290px) {
+    font-size: 9px;
+  }
+  
+  @media(max-width: 290px) {
+    font-size: 8px;
+  }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+
+.aimForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 30px 20px;
+}
+
+
+.aimFormBtn:hover {
+  background-color: #95550c;
+  box-shadow: 0.2px 0.2px 5px rgba(0, 0, 0, 0.723);
+}
+
+input[type="checkbox"] {
+  height: 0;
+  width: 0;
+  visibility: hidden;
+  position: absolute;
+}
+
+
+
+.textHint {
+  position: relative;
+  display: inline-block;
+}
+
+.editTooltip {
+  visibility: hidden;
+  width: 120px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+
+  /* Расположите текст подсказки */
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -60px;
+
+  /* Исчезают в подсказке */
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.textHint .editTooltip::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+.textHint:hover .editTooltip {
+  visibility: visible;
+  opacity: 1;
+}
+
+.editIcon {
+  background-color: #fff;
+  padding: 4px;
+  border-radius: 5px;
+  color: #da5502;
+  margin-right: 2px;
+}
+
+.deleteIcon {
+  background-color: #fff;
+  padding: 4px;
+  border-radius: 5px;
+  color: #da5502;
+  margin-right: 2px;
+}
+
+.reactionBlog {
+  display: flex;
+  margin-top: 20px;
+}

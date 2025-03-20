@@ -1,5 +1,5 @@
 import { FormikErrors, FormikTouched } from "formik"
-import { LoginFormValuesTypeKeys } from "../Components/Login/LoginForm"
+// import { LoginFormValuesTypeKeys } from "../Components/Login/LoginForm"
 import { FieldValidatorType } from "../Components/utils/validators/validators"
 import { FilterType } from "../Components/Redux/users-reducer"
 
@@ -32,8 +32,26 @@ export type ProfileType = {
     aboutMe: string,
     contacts: ContactsType,
     photos: PhotosType
-    status: string
     savePhoto: () => void
+}
+
+export type ProfileInfoType = {
+    profile: ProfileType | undefined;
+    id: number | null;
+    userId: number | null;
+    refetch: () => void;
+    targets: TargetType[] | undefined;
+    updatedTarget: (target: TargetType) => Promise<void>;
+}
+
+export type StatusType = {
+    status: string | null;
+    statusText: string;
+}
+
+export type ProfileStatusHOOKSType = {
+    userId: number | null;
+    id: number | null;
 }
 
 export type UserType = {
@@ -60,41 +78,35 @@ export type AimDataType = {
 }
 
 export type HeaderPropsType = {
-    profile: ProfileType | null;
-    savePhoto: (photos: PhotosType) => void;
-    // status: string;
-    updateStatus: (status: string) => void;
-    saveProfile: (profile: ProfileType) => Promise<any>;
-    userIdState: number
-    goToEditeMode: () => void
+    userId: number,
+    loginUser: string,
 }
 
 export type Params = {
-    userId: string | undefined
+    userId: number | undefined
 }
 
 export type ProfileDataType = {
-    profile: ProfileType
-    isOwner: boolean
+    profile: ProfileType | undefined
     goToEditeMode: () => void
-    userId: string | undefined
-    userIdState: number | null
+    userId: number | null
+    id: number | null
 }
 
 export type InputPropsType = {
     name?: string
     errors?: FormikErrors<{
-      [field: string]: any
+        [field: string]: any
     }>
     touched?: FormikTouched<{
-      [field: string]: any
+        [field: string]: any
     }>
     exitToEditForm: () => void
     profile: ProfileType
 }
 
 export type DisaptchPropsType = {
-  saveProfileTC?: (profile: ProfileType) => Promise<any>
+    saveProfileTC?: (profile: ProfileType) => Promise<any>
 }
 export type FormikPropsType = InputPropsType & DisaptchPropsType
 
@@ -114,18 +126,17 @@ export type LoginFormValuesType = {
 
 
 export type LoginFormOwnProps = {
-    captchaUrl: string 
+    captchaUrl: string
     placeholder: string
-    name: LoginFormValuesTypeKeys
+    // name: LoginFormValuesTypeKeys
     component: string | React.Component
     validate: Array<FieldValidatorType>
 }
 
 export type PaginatorPropsType = {
-    totalUsersCount: number, 
-    pageSize: number, 
-    currentPage: number, 
-    onPageChanged: (pageNumber: number) => void, 
+    totalUsersCount: number,
+    currentPage: number,
+    onPageChanged: (pageNumber: number) => void,
     portionSize?: number
 }
 
@@ -152,7 +163,7 @@ export type SelectedPostType = {
     description: string
     id: number
     liked: boolean
-} 
+}
 
 export type AddPostFormType = {
     addNewBlogPost: (post: PostCartType) => void
@@ -163,7 +174,7 @@ export type TaskType = {
     completed: any
     task: string
 }
-  export type AimType = {
+export type AimType = {
     task: TaskType,
     deleteTodo: (id: number) => void,
     editTodo: (id: number) => void,
@@ -182,9 +193,9 @@ export type NewDataType = {
 
 export type UserPropsType = {
     user: UserType
-    followingInProgress: Array<number>
-    followTC: (userId: number) => void,
-    unfollowTC: (userId: number) => void,
+    refetch: () => void
+    follow: (id: UserType) => void,
+    unfollow: (userId: UserType) => void,
 }
 
 export type UsersSearchType = {
@@ -195,4 +206,97 @@ export type FriendFormType = "true" | "false" | "null"
 export type FormType = {
     term: string,
     friend: FriendFormType
+}
+
+export type TargetType = {
+    id: number;
+    target?: string | null;
+    completed?: boolean;
+}
+
+export type EditTargetFormProps = {
+    editTargetText: (target: { id: number; target: string | null | undefined }) => void;
+    handleEditFormHide: () => void;
+    selectedTarget: TargetType | null;
+    updatedTargetText: (target: { id: number; target: string | null | undefined }) => void;
+}
+
+export type TargetProps = {
+    target: TargetType;
+    updatedTarget: (target: TargetType) => void;
+    deleteTarget: (args: { id: number }) => void;
+    handleEditFormShow: () => void;
+    handleSelectTarget: (target: TargetType) => void;
+}
+
+export type TargetFromProps = {
+    addTarget: (target: TargetType) => void;
+}
+
+export type BlogPropsType = {
+    userId: number;
+}
+
+export type PostType = {
+    id: string;
+    title: string;
+    description: string;
+    liked: boolean;
+}
+
+export type PostPropsType = {
+    userId: number;
+    post: PostType;
+    updatedPost: (post: PostType) => void;
+    likeCount: number;
+    deletePost: (post: { id: string }) => void;
+    handleEditFormShow: () => void;
+    handleSelectPost: () => void;
+}
+
+export type ProfileFormikType = {
+    profile: ProfileType;
+    exitToEditForm: () => void;
+    updatedProfile: (profile: ProfileType) => Promise<void>;
+    isLoading: boolean;
+    refetch: () => void;
+};
+
+
+export type NewsItem = {
+    author: string | null;
+    content: string;
+    title: string;
+    description: string;
+    source: SourceNewstype
+    url: string;
+    urlToImage: string;
+    publishedAt: string;
+}
+
+export type SourceNewstype = {
+    id: string | null;
+    name: string
+}
+
+export type LoginRequest = {
+    email: string;
+    password: string;
+    rememberMe: boolean;
+    captcha?: string;
+}
+
+export type AuthResponse = {
+    data: {
+        userId: number;
+        login: string;
+        email: string;
+    };
+    resultCode: number;
+    messages: string[];
+}
+
+export type AuthResponseDataType = {
+    userId: number; // userId опционален
+    resultCode: number;
 }

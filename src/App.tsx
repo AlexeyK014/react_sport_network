@@ -1,54 +1,78 @@
-import React, { Suspense, useEffect, useLayoutEffect, useRef, useState } from 'react';
+import React, { Suspense, useEffect, useState } from 'react';
 import './App.css';
-import { BrowserRouter, HashRouter, Navigate, Route, Routes } from 'react-router-dom';
-import { EnchancedNews } from './Components/News/News.tsx';
-import { EnchancedUsers } from './Components/Users/Users.tsx';
+import { Navigate, Route, Routes, useLocation, useNavigate } from 'react-router-dom';
+import { News } from './Components/News/News.tsx';
+import { Users } from './Components/Users/Users.tsx';
 import { Login } from './Components/Login/Login.tsx';
-import Preloader from './Components/common/Preloader/Preloader.tsx';
-import store, { AppStateType } from './Components/Redux/redux-store.ts';
-import { Provider } from 'react-redux';
-import { initializeApp } from './Components/Redux/app-reducer.ts'
-import { AnyAction } from 'redux';
-import NotFound from './Components/Not Found/NotFound.jsx';
-// import 'antd/dist/ants.css'
 import { Layout, Menu } from 'antd';
-import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { AppHeader } from './Components/Header/Header.tsx';
-import { selectApp } from './Components/Redux/Selectors/app-selector.ts';
 import { useDispatch } from 'react-redux';
-import { QueryClient, QueryClientProvider } from 'react-query';
-import { EnchancedAimsWrapper } from './Components/Aims/AimsWrapperFromLS.tsx';
-import { EnchancedProfielPage } from './Components/Profile/ProfileContainer.tsx';
+import { Profile } from './Components/Profile/Profile.tsx';
+import { profileApi } from './reduxToolkit/profile/slice.ts';
+import { authApi, useSetAuthQuery } from './reduxToolkit/auth/slice.ts';
+import Targets from './Components/Targets/Targets.tsx';
+//@ts-ignore
+import profile from './img/profile.svg';
+//@ts-ignore
+import friends from './img/friends.svg';
+//@ts-ignore
+import goal from './img/goal.svg';
+//@ts-ignore
+import chat from './img/chat.svg';
+//@ts-ignore
+import news from './img/news.svg';
 import MobileNavBar from './Components/MobileNavBar/MobileNavBar.tsx';
-import { selectAuth } from './Components/Redux/auth-selector.ts';
-
+import ChatPage from './Components/Chat/ChatPage.tsx';
+import Chat from './Components/Chat/Chat.tsx';
 
 
 const { Content, Sider } = Layout;
 
-
-const DialogsContainer = React.lazy(() => import('./Components/Messages/DialogsContainer.tsx'));
-const ChatPage = React.lazy(() => import('./Components/Chat/ChatPage.tsx'));
-
-
-export const AppFunc: React.FC = (props) => {
-    const userId = useSelector((state: AppStateType) => state.auth.userId);
-    const selectorApp = useSelector(selectApp);
-    const dispatch = useDispatch();
-    const isAuth = useSelector(selectAuth);
-    const location = window.location.pathname
-
-    // const windowInnerWidth = document.documentElement.clientWidth
-    // const windowInnerHeight = document.documentElement.clientHeight
+export const AppFunc: React.FC = () => {
+    const location = useLocation()
+    const navigate = useNavigate()
+    const dispatch = useDispatch()
 
 
-    // const [windowSize, setWindowSize] = useState({
-    //     width: windowInnerWidth,
-    //     height: windowInnerHeight,
-    // });
-
+    const [skipProfile, setSkipProfile] = useState(true)
     const [width, setWidth] = useState(window.innerWidth);
+
+    //@ts-ignore
+    const { userId, loginUser } = useSetAuthQuery('authUser', {
+        selectFromResult: ({ data }) => ({
+            userId: data?.userId,
+            loginUser: data?.loginUser,
+            resultCode: data?.resultCode
+        })
+    })
+
+
+    useEffect(() => {
+        if (userId) {
+            navigate({
+                pathname: `/profile/${userId}`
+            })
+            setSkipProfile(false)
+        }
+        else if (!userId) {
+            navigate({
+                pathname: `/login`
+            })
+            setSkipProfile(true)
+            dispatch(authApi.util.resetApiState());
+            dispatch(profileApi.util.resetApiState());
+        }
+    }, [navigate, userId, dispatch])
+
+
+    useEffect(() => {
+        navigate({
+            pathname: `${location.pathname}`
+        })
+    }, [navigate])
+
+
 
     useEffect(() => {
         const handleResize = (event) => {
@@ -59,124 +83,78 @@ export const AppFunc: React.FC = (props) => {
         window.addEventListener('resize', handleResize);
         return () => {
             window.removeEventListener('resize', handleResize);
-           
+
         };
-        
-        
+
+
     }, []);
-    
-
-
-
-
-    useEffect(() => {
-
-        dispatch(initializeApp() as unknown as AnyAction)
-
-        console.log(location)
-    }, [selectorApp])
-
-    // useEffect(() => {
-    //     window.onresize = () => {
-    //         setWindowSize({
-    //             width: windowInnerWidth,
-    //             height: windowInnerHeight,
-    //         });
-    //     };
-    // }, []);
-
-    // console.log(windowInnerWidth, windowInnerHeight);
-
-
-
-
-    if (!selectorApp) {
-        return <Preloader />
-    }
-
-    console.log(width);
-    
-
 
     return (
-        <Layout className='page' >
-            {userId && <AppHeader userId={userId} />}
+        <>
+            {!userId
+                ? <Login />
+                : (
+                    < Layout className='page' >
+                        <AppHeader userId={userId} loginUser={loginUser} />
+                        <Layout className='page2' >
+                            {width > 800
+                                ? (
+                                    <Sider className='sider-page' style={{ background: '#fbeede' }}>
+                                        <Menu
+                                            className='sider'
+                                            mode="inline"
+                                            defaultOpenKeys={[location.pathname]}
+                                        >
+                                            <Menu.Item key="1" className='itemMenu'>
+                                                <img src={profile} />
+                                                <Link to={`/profile/${userId}`}>Мой профайл</Link>
+                                            </Menu.Item>
+                                            <Menu.Item key="2" className='itemMenu'>
+                                                <img src={friends} />
+                                                <Link to={"/users"}>Пользователи</Link>
+                                            </Menu.Item>
+                                            <Menu.Item key="3" className='itemMenu'>
+                                                <img src={goal} />
+                                                <Link to={'/targets'}>Мои цели</Link>
+                                            </Menu.Item>
+                                            <Menu.Item key="4" className='itemMenu'>
+                                                <img src={chat} />
+                                                <Link to={`/chat`}>Чат</Link>
+                                            </Menu.Item>
+                                            <Menu.Item key="5" className='itemMenu'>
+                                                <img src={news} />
+                                                <Link to={'/news'}>News</Link>
+                                            </Menu.Item>
+                                        </Menu>
+                                    </Sider>
+                                ) : (
+                                    <MobileNavBar />
+                                )
+                                
+                            }
 
-            <Layout className='page2' >
-                {isAuth
-                    ? (
-                        width > 800
-                            ? (
-                                <Sider width={200} className='sider-page' style={{ background: '#fbeede' }}>
-                                    <Menu
-                                        className='sider'
-                                        mode="inline"
-                                        defaultOpenKeys={['1']}
-                                        selectedKeys={[location]}
-                                        style={{ borderRight: 5, color: '#3b2d41' }}
-                                    >
 
-                                        <Menu.Item key="1" className='itemMenu'>
-                                            <Link to={`/profile/26225`}>Мой профайл</Link>
-                                            {/* <Link to={`/profile/${userId}`}>Мой профайл</Link> */}
-                                        </Menu.Item>
-                                        <Menu.Item key="2">
-                                            <Link to={"/users"}>Пользователи</Link>
-                                        </Menu.Item>
-                                        <Menu.Item key="3">
-                                            <Link to={'/myaims'}>Мои цели</Link>
-                                        </Menu.Item>
-                                        <Menu.Item key="4">
-                                            <Link to={`/chat`}>Чат</Link>
-                                        </Menu.Item>
-                                        <Menu.Item key="5">
-                                            <Link to={'/news'}>News</Link>
-                                        </Menu.Item>
-                                    </Menu>
-                                </Sider>
-                            )
-                            : (<MobileNavBar />)
-                    ) : ('')
-                }
-                <Layout className='content'>
-                    <Content >
-                        <Suspense fallback={<div><Preloader /></div>}>
-                            <Routes>
-                                <Route path="/" element={<Navigate to="/profile" />} />
-                                <Route path='/profile/*' element={<EnchancedProfielPage />}>
-                                    <Route path=':userId' element={<EnchancedProfielPage />} />
-                                </Route>
-                                <Route path='/users' element={<EnchancedUsers />} />
-                                <Route path='/dialogs/*' element={<DialogsContainer />} />
-                                <Route path='/news' element={<EnchancedNews />} />
-                                <Route path='/login' element={<Login />} />
-                                <Route path='*' element={<NotFound />} />
-                                <Route path='/chat' element={<ChatPage />} />
-                                <Route path='/myaims' element={<EnchancedAimsWrapper />} />
-                            </Routes>
-                        </Suspense>
-                    </Content>
-                </Layout>
-            </Layout>
-        </Layout>
-
+                            <Layout className='content'>
+                                <Content>
+                                    <Suspense fallback={<div>Загрузка...</div>}>
+                                        <Routes>
+                                            <Route path="/" element={<Navigate to={`/profile/${userId}`} />} />
+                                            <Route path='/profile/*' element={<Profile />}>
+                                                <Route path=':id' element={<Profile />} />
+                                            </Route>
+                                            <Route path='/login' element={<Login />} />
+                                            <Route path='/targets' element={<Targets />} />
+                                            <Route path='/users' element={<Users />} />
+                                            <Route path='/news' element={<News />} />
+                                            <Route path='/chat' element={<ChatPage/>} />
+                                        </Routes>
+                                    </Suspense>
+                                </Content>
+                            </Layout>
+                        </Layout>
+                    </Layout >
+                )
+            }
+        </>
     )
 }
-
-
-
-
-const MainApp: React.FC = () => {
-    const queryClient = new QueryClient()
-    return <QueryClientProvider client={queryClient}>
-        {/* <BrowserRouter  basename ="/"> */}
-        <HashRouter>
-            <Provider store={store}>
-                <AppFunc />
-            </Provider>
-        </HashRouter>
-    </QueryClientProvider>
-
-}
-
-export default MainApp;

@@ -1,53 +1,78 @@
 import React, { useEffect, useRef, useState } from "react";
-import { useSelector } from "react-redux";
-import { AppStateType } from "../Redux/redux-store";
 import { useDispatch } from "react-redux";
-import { AnyAction } from "redux";
-import { logoutTC } from "../Redux/auth-reducer.ts";
 import { Button, Col, Layout, Row } from "antd";
-import { selectAuth, selectCurrentUserLogin } from "../Redux/auth-selector.ts";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 //@ts-ignore
 import style from './Header.module.css';
 //@ts-ignore
 import userProfile from '../../img/avaUsers.png'
+import { profileApi, useGetProfileQuery, useSavePhotoMutation, useUpdatedProfileMutation } from "../../reduxToolkit/profile/slice.ts";
+import { authApi, useLogoutMutation } from "../../reduxToolkit/auth/slice.ts";
+import { HeaderPropsType } from "../../Types/Types.ts";
 
 
 
 const { Header } = Layout;
 
-export const AppHeader: React.FC<{}> = ({ userId }) => {
-    const isAuth = useSelector(selectAuth);
-    const login = useSelector(selectCurrentUserLogin);
-    const profile = useSelector((state: AppStateType) => state.profilePage.profile);
-    // let { userId } = useParams();
-    const userIdState = useSelector((state: AppStateType) => state.auth.userId);
-    const authorizedUserId = useSelector((state: AppStateType) => state.auth.userId);
+export const AppHeader: React.FC<HeaderPropsType> = ({ userId, loginUser }) => {
+    const [skipProfile, setSkipProfile] = useState<boolean>(true)
 
-    const [windowSize, setWindowSize] = useState({
-        width: window.innerWidth,
-        height: window.innerHeight,
+    const { data, refetch, isFetching } = useGetProfileQuery(userId, {
+        skip: skipProfile,
+        refetchOnMountOrArgChange: true,
     });
 
-    useEffect(() => {
-        window.onresize = () => {
-            setWindowSize({
-                width: window.innerWidth,
-                height: window.innerHeight,
-            });
-        };
-    }, []);
-
-    // console.log(profile);
-
-
+    const [logout] = useLogoutMutation();
     const dispatch = useDispatch();
+    const navigate = useNavigate();
+    const [savePhoto, { isLoading: waiteUpdatePhoto }] = useSavePhotoMutation();
+    const [updatedProfile] = useUpdatedProfileMutation();
+    let menuRef = useRef<HTMLDivElement>(null);
 
-    const logout = () => {
-        dispatch(logoutTC() as unknown as AnyAction)
-    }
 
-    let menuRef = useRef<HTMLDivElement>();
+    const handleInvalidate =  async(e: React.ChangeEvent<HTMLInputElement & EventTarget>) => {
+        const file = e.target.files?.[0]; // Получаем файл из input
+        if (file) {
+            await savePhoto(file).unwrap(); // Передаем файл в мутацию
+            dispatch(profileApi.util.invalidateTags(['profile']));
+            refetch();
+        }
+    };
+
+
+    const onLogoutHandler = async () => {
+        await logout();
+        dispatch(authApi.util.resetApiState());
+        dispatch(profileApi.util.resetApiState());
+        navigate({
+            pathname: '/login'
+        })
+        setSkipProfile(true)
+    };
+
+    useEffect(() => {
+        if (userId) {
+            setSkipProfile(false);
+            const file = new File([''], 'profile', { type: 'text/plain' }); // Создаем файл
+            savePhoto(file);
+            
+
+            updatedProfile({...data })
+        } else if (!userId) {
+            setSkipProfile(true)
+        }
+    }, [data, updatedProfile, userId, savePhoto])
+
+    useEffect(() => {
+        if (data) {
+            // Обновляем глобальное состояние, если нужно
+            dispatch({ type: 'profile', payload: data });
+            refetch()
+            updatedProfile({...data })
+        }
+    }, [data, dispatch, refetch, updatedProfile]);
+
+
 
     return (
         <Header className={style.header}>
@@ -63,23 +88,34 @@ export const AppHeader: React.FC<{}> = ({ userId }) => {
                     </span>
 
                 </Col>
-                {isAuth
+                {userId
                     ? <>
                         <Col span={1}>
-                            <div profile={profile} userId={userId} className={style.avaBlog}>
+                            <div className={style.avaBlog}>
                                 <img
-                                    src={profile?.photos.large}
                                     className={style.avatarHeader}
-                                    // src={+userId === userIdState && (profile?.photos.large || userProfile) || (profile?.photos.large || userProfile) } 
-                                    // className={style.avatarHeader} 
-                                    alt="avatarProfile">
+                                    src={+userId && (data?.photos.large || userProfile) || (data?.photos.large || userProfile)}
+                                    alt="avatarProfile"
+                                    onClick={() => document.getElementById('file-input')?.click()} // Открываем диалог выбора файла
+                                    // onChange={handleInvalidate}
+                                >
                                 </img>
+                                <input
+                                    type="file"
+                                    onChange={handleInvalidate} // Обработчик изменения файла
+                                    style={{ display: 'none' }} // Скрываем input
+                                    id="file-input"
+                                />
                             </div>
                         </Col>
                         <Col span={5} >
                             <div ref={menuRef}>
-                                <span className={style.login}>{login}</span>
-                                <button onClick={logout} className={style.btnExit}>Выйти</button>
+                                <span className={style.login}>{loginUser}</span>
+                                <button
+                                    onClick={onLogoutHandler}
+                                    className={style.btnExit}>
+                                    Выйти
+                                </button>
                             </div>
 
                         </Col>
@@ -87,7 +123,6 @@ export const AppHeader: React.FC<{}> = ({ userId }) => {
                     :
                     <Col span={6}>
                         <Button>
-                            {/* <Link to={'/yoursport'}>Login</Link> */}
                             <Link to={'/login'}>Login</Link>
                         </Button>
                     </Col>

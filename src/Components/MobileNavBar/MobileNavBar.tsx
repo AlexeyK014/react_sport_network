@@ -1,17 +1,28 @@
 import React from 'react'
 //@ts-ignore
 import style from './MobileNavBar.module.css'
-import imgProfile from '../../../src/img/profile.svg'
-import imgUsers from '../../../src/img/users.svg'
-import imgChat from '../../../src/img/chat.svg'
-import imgNews from '../../../src/img/news.svg'
-import imgTarget from '../../../src/img/target.svg'
-import { NavLink, useParams } from 'react-router-dom'
-import { useSelector } from 'react-redux'
-import { AppStateType } from '../Redux/redux-store'
+//@ts-ignore
+import imgProfile from '../../../src/img/profile-white.svg'
+//@ts-ignore
+import imgUsers from '../../../src/img/friends-white.svg'
+//@ts-ignore
+import imgChat from '../../../src/img/chat-white.svg'
+//@ts-ignore
+import imgNews from '../../../src/img/news-white.svg'
+//@ts-ignore
+import imgTarget from '../../../src/img/target-white.svg'
+import { NavLink } from 'react-router-dom'
+import { useSetAuthQuery } from '../../reduxToolkit/auth/slice.ts'
 
 const MobileNavBar = () => {
-    const userId = useSelector((state: AppStateType) => state.auth.userId);
+    //@ts-ignore
+        const { userId, loginUser } = useSetAuthQuery('authUser', {
+            selectFromResult: ({ data }) => ({
+                userId: data?.userId,
+                loginUser: data?.loginUser,
+                resultCode: data?.resultCode
+            })
+        })
 
     return (
         <div className={style.navbarBlog}>
@@ -31,7 +42,7 @@ const MobileNavBar = () => {
                     
                 </div>
                 <div>
-                    <NavLink to={'/myaims'} className={style.itemMenu}>
+                    <NavLink to={'/targets'} className={style.itemMenu}>
                         <img src={imgTarget}/>
                         <div className={style.titleMenu}>Мои цели</div>
                     </NavLink>

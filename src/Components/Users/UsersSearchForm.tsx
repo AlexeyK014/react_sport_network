@@ -14,12 +14,22 @@ const usersFormValidate = (values: any) => {
 const UsersFormSearch: React.FC<UsersSearchType> = React.memo(({onFilterChanged}) => {
 
     const submit = (values: FormType,  { setSubmitting }: {setSubmitting: (isSubmitting: boolean) => void}) => {
-        const filter: FilterType = {
-            term: values.term,
-            friend: values.friend === 'null' ? null : values.friend === 'true' ? true : false
-        }
-        onFilterChanged(filter);
+        // const filter: FilterType = {
+        //     term: values.term,
+            // friend: values.friend === 'null' 
+            //     ? null 
+            //     : values.friend === 'true' 
+            //         ? true : false
+        // }
+        // onFilterChanged(filter);
         setSubmitting(false);
+    }
+
+    const handleSearchChange = (e) => {
+        e.preventDefault();
+        const searchValue = e.target.value
+        console.log(searchValue);
+        
     }
 
     return <div>
@@ -28,7 +38,7 @@ const UsersFormSearch: React.FC<UsersSearchType> = React.memo(({onFilterChanged}
             initialValues={{term: '', friend: 'null'}}
             validate={usersFormValidate}
             //@ts-ignore
-            onSubmit={submit}
+            onSubmit={handleSearchChange}
         >
             {({ isSubmitting }) => (
                 <Form className={style.searchForm}>

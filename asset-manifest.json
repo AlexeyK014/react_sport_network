@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/react_sport_network/static/css/main.cec15cbb.css",
-    "main.js": "/react_sport_network/static/js/main.ff92605a.js",
+    "main.js": "/react_sport_network/static/js/main.d9e69570.js",
     "static/media/DelaGothicOne-Regular.ttf": "/react_sport_network/static/media/DelaGothicOne-Regular.a8761c8c6d54ccaa44db.ttf",
     "static/media/fonLogin.jpg": "/react_sport_network/static/media/fonLogin.ecfc7d5bc699a4e48995.jpg",
     "static/media/esquina-rounded-3.ttf": "/react_sport_network/static/media/esquina-rounded-3.e41ac346b469bf048984.ttf",
@@ -30,10 +30,10 @@
     "static/media/right.svg": "/react_sport_network/static/media/right.9d1c94a3badb9986063567f699c223c4.svg",
     "static/media/left.svg": "/react_sport_network/static/media/left.03b5e7a969a15ec79e9be83140711345.svg",
     "main.cec15cbb.css.map": "/react_sport_network/static/css/main.cec15cbb.css.map",
-    "main.ff92605a.js.map": "/react_sport_network/static/js/main.ff92605a.js.map"
+    "main.d9e69570.js.map": "/react_sport_network/static/js/main.d9e69570.js.map"
   },
   "entrypoints": [
     "static/css/main.cec15cbb.css",
-    "static/js/main.ff92605a.js"
+    "static/js/main.d9e69570.js"
   ]
 }

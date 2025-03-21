@@ -9,43 +9,43 @@ import { AppStateType } from "../Redux/redux-store";
 import { AnyAction } from "redux";
 import { message } from "antd";
 
-const ws = new WebSocket('https://social-network.samuraijs.com/handlers/ChatHandler.ashx')
+const ws = new WebSocket('https://social-network.samuraijs.com/handlers/ChatHandler.ashx');
 
 
 const ChatPage: React.FC = () => {
     return <div>
-        
+
         <div className={style.fonChat}>
             {/* <h1>Чат</h1> */}
             {/* <img src={fonChat} className={style.fonImg} /> */}
         </div>
-        {/* <Chat /> */}
+        <Chat />
     </div>
 }
 
-// const Chat: React.FC = () => {
-//     // const dispatch = useDispatch();
-//     // const status = useSelector((state: AppStateType) => state.chat.status);
+const Chat: React.FC = () => {
+    // const dispatch = useDispatch();
+    // const status = useSelector((state: AppStateType) => state.chat.status);
 
 
-//     return <div>
-//         {/* {status === 'error' && <div>Some error occured. Please refresh page.</div>} */}
-        
-//         <Messages />
-//         <AddMessageForm />
-//     </div>
-// }
+    return <div>
+        {/* {status === 'error' && <div>Some error occured. Please refresh page.</div>} */}
 
-// const Messages: React.FC = () => {
-    // const [messages, setMessages] = useState([])
-    // useEffect(() => {
-    //     ws.addEventListener('message', (e) => {
-    //         let newMessages = JSON.parse(e.data);
-    //         // setMessages(newMessages);
-    //         // setMessages((prevMessages) => [...prevMessages, ...newMessages]);
-    //         console.log(JSON.parse(e.data));
-    //     })
-    // }, [])
+        <Messages />
+        <AddMessageForm />
+    </div>
+}
+
+const Messages: React.FC = () => {
+    const [messages, setMessages] = useState([])
+    useEffect(() => {
+        ws.addEventListener('message', (e) => {
+            let newMessages = JSON.parse(e.data)
+            // setMessages(newMessages);
+            setMessages((prevMessages) => [...prevMessages, ...newMessages]);
+            console.log(JSON.parse(e.data));
+        })
+    }, [messages])
     // const messages = useSelector((state: AppStateType) => state.chat.messages);
     // const messageAncorRef = useRef<HTMLDivElement>(null) // для автоскролла
     // const [isAutoScroll, setautoScrollIs] = useState<boolean>(true);
@@ -58,7 +58,7 @@ const ChatPage: React.FC = () => {
     //     }
     // }
 
-    // // если из useSelector достаём новый массив, значит надо сделать перемотку
+    // если из useSelector достаём новый массив, значит надо сделать перемотку
     // useSelector(() => {
     //     if (isAutoScroll) {
     //         messageAncorRef.current?.scrollIntoView({ behavior: 'smooth' })
@@ -66,31 +66,31 @@ const ChatPage: React.FC = () => {
     //     //@ts-ignore
     // }, [messages] as unknown as AnyAction)
 
-    // return <div style={{ height: '400px', overflow: 'auto'}}>
-    //     {messages.map((m, index) => <Message key={index} message={m}/>)}
-    // </div>
+    return <div style={{ height: '400px', overflow: 'auto'}}>
+        {messages.map((m, index) => <Message key={index} message={m}/>)}
+    </div>
     // <div className={style.message} onScroll={scrollHandler}>
     //     {messages.map((m, index) => <Message key={m.id} message={m} />)}
 
     //     {/* messageAncorRef - для автоскролла */}
     //     <div ref={messageAncorRef}></div>
     // </div>
-// }
+}
 
-// const Message: React.FC<{message}> = ({message}) => {
-//     return <div>
-//         <img src={message.photo} style={{width: '30px'}}/> <b>{message.userName}</b>
-//         <br />
-//         {message.message}
-//         <hr />
-//     </div>
-// }
+const Message: React.FC<{message}> = ({message}) => {
+    return <div>
+        <img src={message.photo} style={{width: '30px'}}/> <b>{message.userName}</b>
+        <br />
+        {message.message}
+        <hr />
+    </div>
+}
 
 
 // const Message: React.FC<{ message: ChatMessageAPIType }> = React.memo(({ message }) => {
 
 //     return <div className={style.chat}>
-        
+
 
 //         <div className={style.messageBlock}>
 //             <span className={style.chatName}>{message.userName}</span>
@@ -119,7 +119,7 @@ const AddMessageForm: React.FC<{}> = () => {
     // }
     return <div className={style.chatForm}>
         <div>
-            <textarea onChange={(e) => setMessage(e.currentTarget.value)} value={message}/>
+            <textarea onChange={(e) => setMessage(e.currentTarget.value)} value={message} />
         </div>
         <div>
             <button>Send</button>

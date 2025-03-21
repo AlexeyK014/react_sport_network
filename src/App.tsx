@@ -24,7 +24,6 @@ import chat from './img/chat.svg';
 import news from './img/news.svg';
 import MobileNavBar from './Components/MobileNavBar/MobileNavBar.tsx';
 import ChatPage from './Components/Chat/ChatPage.tsx';
-import Chat from './Components/Chat/Chat.tsx';
 
 
 const { Content, Sider } = Layout;
@@ -78,15 +77,11 @@ export const AppFunc: React.FC = () => {
         const handleResize = (event) => {
             const windowInnerWidth = event.target.innerWidth
             setWidth(windowInnerWidth);
-            // console.log(windowInnerWidth);
         };
         window.addEventListener('resize', handleResize);
         return () => {
             window.removeEventListener('resize', handleResize);
-
         };
-
-
     }, []);
 
     return (
@@ -146,7 +141,7 @@ export const AppFunc: React.FC = () => {
                                             <Route path='/targets' element={<Targets />} />
                                             <Route path='/users' element={<Users />} />
                                             <Route path='/news' element={<News />} />
-                                            <Route path='/chat' element={<ChatPage/>} />
+                                            {/* <Route path='/chat' element={<ChatPage/>} /> */}
                                         </Routes>
                                     </Suspense>
                                 </Content>

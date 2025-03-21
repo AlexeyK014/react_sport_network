@@ -23,7 +23,7 @@ export const Login: React.FC = () => {
                 </p>
 
                 <p className={style.subscribe}>
-                    Присоединяйся!
+                    Присоединяйся
                 </p>
 
 

@@ -5,7 +5,7 @@ import style from './News.module.css';
 import authorAvatar from '../../img/avaProfile.jpg';
 //@ts-ignore
 import fonNews from '../../img/fonNews2.jpg';
-import { NewsItem} from "../../Types/Types";
+import { NewsItem } from "../../Types/Types";
 import Preloader from "../common/Preloader/Preloader.tsx";
 import { useGetNewsQuery } from "../../reduxToolkit/news/slice.ts";
 
@@ -20,7 +20,9 @@ export const News: React.FC = () => {
         }, 2000);
     }, []);
 
-    const { data } = useGetNewsQuery()
+    const { data } = useGetNewsQuery();
+    console.log(data);
+    
 
 
     return (
@@ -30,12 +32,12 @@ export const News: React.FC = () => {
             ) : (
                 <><div className={style.fonBlog}>
                     <h1>Новости</h1>
-                    <img src={fonNews} className={style.fonImg} alt="Фон новостей"/>
+                    <img src={fonNews} className={style.fonImg} alt="Фон новостей" />
                 </div><div className={style.newsContent}>
                         {data?.articles.map((newData: NewsItem) => (
                             <div className={style.news} key={newData.url}>
                                 <div className={style.imgBlock}>
-                                    <img src={newData.urlToImage} className={style.imgNews} alt={newData.title}/>
+                                    <img src={newData.urlToImage} className={style.imgNews} alt={newData.title} />
                                 </div>
                                 <div className={style.titleBlog}>
                                     <span className={style.line}></span>
@@ -49,7 +51,7 @@ export const News: React.FC = () => {
                                 </div>
 
                                 <div className={style.authorBlog}>
-                                    <img src={authorAvatar} alt="Аватар автора"/>
+                                    <img src={authorAvatar} alt="Аватар автора" />
                                     <span className={style.authorName}>
                                         {newData.author || 'автор не указан'}
                                     </span>

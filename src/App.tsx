@@ -24,6 +24,7 @@ import chat from './img/chat.svg';
 import news from './img/news.svg';
 import MobileNavBar from './Components/MobileNavBar/MobileNavBar.tsx';
 import ChatPage from './Components/Chat/ChatPage.tsx';
+import ChatComponent from './Components/Chat/ChatRTK.tsx';
 
 
 const { Content, Sider } = Layout;
@@ -120,6 +121,10 @@ export const AppFunc: React.FC = () => {
                                                 <img src={news} />
                                                 <Link to={'/news'}>News</Link>
                                             </Menu.Item>
+                                            <Menu.Item key="6" className='itemMenu'>
+                                                <img src={news} />
+                                                <Link to={'/chatrtk'}>ChatRTK</Link>
+                                            </Menu.Item>
                                         </Menu>
                                     </Sider>
                                 ) : (
@@ -141,7 +146,8 @@ export const AppFunc: React.FC = () => {
                                             <Route path='/targets' element={<Targets />} />
                                             <Route path='/users' element={<Users />} />
                                             <Route path='/news' element={<News />} />
-                                            {/* <Route path='/chat' element={<ChatPage/>} /> */}
+                                            <Route path='/chat' element={<ChatPage/>} />
+                                            <Route path='/chatrtk' element={<ChatComponent/>} />
                                         </Routes>
                                     </Suspense>
                                 </Content>

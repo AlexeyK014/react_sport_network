@@ -16,6 +16,7 @@ import { authApi } from './auth/slice.ts';
 import { usersApi } from './user/slice.ts';
 import { targetsApi } from './targets/slice.ts';
 import { newsApi } from './news/slice.ts';
+import { chatApi } from './chat/slice.ts';
 
 
 
@@ -27,7 +28,7 @@ const rootReducer = combineReducers({
   [usersApi.reducerPath]: usersApi.reducer,
   [targetsApi.reducerPath]: targetsApi.reducer,
   [newsApi.reducerPath]: newsApi.reducer,
-  // [chatApi.reducerPath]: chatApi.reducer,
+  [chatApi.reducerPath]: chatApi.reducer,
 });
 
 const persistConfig = {
@@ -54,7 +55,7 @@ export const store = configureStore({
           usersApi.middleware,
           targetsApi.middleware,
           newsApi.middleware,
-          // chatApi.middleware
+          chatApi.middleware
         ])  
 })
 
